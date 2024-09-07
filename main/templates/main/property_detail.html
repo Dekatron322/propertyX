@@ -1,0 +1,1575 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+
+<!-- Mirrored from creativelayers.net/themes/justhome-html/property-single-v4.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Sep 2024 07:39:09 GMT -->
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>JustHome - Real Estate HTML Template</title>
+
+    <meta name="author" content="creativelayers">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animation.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/nouislider.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/nice-select.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap-select.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/magnific-popup.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/mmenu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+
+    <!-- Font -->
+    <link rel="stylesheet" href="font/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/flaticon_just-home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/icomoon/style.css' %}">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'assets/images/favicon.png' %}">
+
+</head>
+
+<body class="body">
+
+    <!-- preload -->
+    <div class="preload preload-container">
+        <div class="middle"></div>
+    </div>
+    <!-- /preload -->
+
+    <!-- #wrapper -->
+    <div id="wrapper">
+        <!-- #page -->
+        <div id="page" class="">
+            
+            <!-- header -->
+            <header id="header_main" class="header header-fixed">
+                <div class="header-inner"> 
+                    <div class="header-inner-wrap">
+                        <div id="site-logo">
+                            <a href="index.html" rel="home">
+                                <img class="d-block" id="logo-header" src="{% static 'assets/images/logo/logo.svg' %}"  alt="">
+                            </a>
+                        </div>
+                        <nav class="main-menu">
+                            <ul class="navigation">
+                                <li class="has-children"><a href="javascript:void(0);">Home</a>
+                                    
+                                </li>
+                                <li class="has-children current"><a href="javascript:void(0);">Property</a>
+                                    
+                                </li>
+                                <li class="has-children"><a href="javascript:void(0);">Realtor</a>
+                                    
+                                </li>
+                               
+                                
+                                
+                                <li>
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="header-right">
+                            <div class="header-call">
+                                <div class="icon">
+                                    <i class="flaticon-phone"></i>
+                                </div>
+                                <div class="number">800-555-6789</div>
+                            </div>
+                            {% if app_user %}
+                            <div data-bs-toggle="modal" data-bs-target="#modallogin" class="header-user-login">
+                                <div class="image">
+                                    <img src="{% static 'assets/images/author/author-6.png' %}" alt="">
+                                </div>
+                                <div class="name">{{ app_user.user.first_name }} {{ app_user.user.last_name }}</div>
+                            </div>
+                            {% else %}
+                            <div data-bs-toggle="modal" data-bs-target="#modallogin" class="header-user">
+                                <div class="icon">
+                                    <i class="flaticon-user"></i>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="header-btn">
+                                <a href="dashboard-add-properties.html" class="tf-button-default">Add Listing</a>
+                            </div>
+                        </div>
+                        <a class="mobile-nav-toggler mobile-button" href="#menu"></a>
+                    </div>
+                </div>
+                <nav id="menu">
+                    <a class="close" aria-label="Close menu" href="#mm-22">
+                        <i class="icon-close"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <span>Home</span>   
+                        </li>
+                        <li class="current">
+                            <span>Property</span>
+                        </li>
+                        <li>
+                            <span>Realtor</span>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- /header -->
+
+            <!-- main-content -->
+            <div class="main-content default">
+
+                <!-- property-single-wrap -->
+                <div class="property-single-wrap v4">
+                    <div class="cl-container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="flex items-center justify-between gap30 flex-wrap pt-30 pb-30">
+                                    <ul class="breadcrumbs style-1 justify-start">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li>/</li>
+                                        <li>Property List</li>
+                                        <li>/</li>
+                                        <li>Renovated Apartment</li>
+                                    </ul>
+                                    <div class="list-icons-page">
+                                        <div class="item" data-bs-toggle="modal" data-bs-target="#modallogin">
+                                            {% if liked %}
+                                            <div class="icon" style="background-color:#efc873;">
+                                                <i class="flaticon-heart"></i>
+                                            </div>
+                                            
+                                                <p>Unlike</p>
+                                            {% else %}
+                                                <div class="icon">
+                                                <i class="flaticon-heart"></i>
+                                            </div>
+                                                <p>Like</p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="item" data-bs-toggle="modal" data-bs-target="#modalbookmark">
+                                            {% if bookmarked %}
+                                            <div class="icon" style="background-color:#efc873;">
+                                                <i class="flaticon-before-after"></i>
+                                            </div>
+                                            <p>Bookmarked</p>
+                                            {% else %}
+                                            <div class="icon" >
+                                                <i class="flaticon-before-after"></i>
+                                            </div>
+                                            <p>Bookmark</p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="item">
+                                            <div class="icon">
+                                                <i class="flaticon-outbox"></i>
+                                            </div>
+                                            <p>Share</p>
+                                        </div>
+                                        <div class="item">
+                                            <div class="icon">
+                                                <i class="flaticon-tools-and-utensils"></i>
+                                            </div>
+                                            <p>Print</p>
+                                        </div>
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-container slider-3-center">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="{{ prop.image_ten.url }}" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ prop.image_six.url }}" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ prop.image_seven.url }}" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ prop.image_eight.url }}" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ prop.image_nine.url }}" alt="">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="cl-container">
+                        <div class="row">
+                            <div class="col-xl-8">
+                                <div class="content-wrap">
+                                    <div class="head-title">
+                                        <div>
+                                            <div class="list-tags wow fadeInUp">
+                                                <a href="#" class="tags-item for-sell">{{ prop.property_status }}</a>
+                                                <a href="#" class="tags-item featured">FEATURED</a>
+                                            </div>
+                                            <h3 class="wow fadeInUp">{{ prop.title }}</h3>
+                                            <div class="location wow fadeInUp">
+                                                <div class="icon">
+                                                    <i class="flaticon-location"></i>
+                                                </div>
+                                                <div class="text-content">{{ prop.address }}, {{ prop.city }}, {{ prop.area }}</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="square wow fadeInUp">{{ prop.price_per_sqft }} /sq ft</div>
+                                            <div class="price wow fadeInUp">${{ prop.price }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="box-items">
+                                        <div class="item wow fadeInUp">
+                                            <div class="icon">
+                                                <i class="flaticon-city"></i>
+                                            </div>
+                                            <div class="text-content">{{ prop.category }}</div>
+                                        </div>
+                                        <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                            <div class="icon">
+                                                <i class="flaticon-hammer"></i>
+                                            </div>
+                                            <div class="text-content">{{ prop.year_built }}</div>
+                                        </div>
+                                        <div class="item wow fadeInUp" data-wow-delay="0.2s">
+                                            <div class="icon">
+                                                <i class="flaticon-minus-front"></i>
+                                            </div>
+                                            <div class="text-content">{{ prop.property_size }} Sq Ft</div>
+                                        </div>
+                                        <div class="item wow fadeInUp">
+                                            <div class="icon">
+                                                <i class="flaticon-hotel"></i>
+                                            </div>
+                                            <div class="text-content">{{ prop.bedroom_number }} Bedrooms</div>
+                                        </div>
+                                        <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                            <div class="icon">
+                                                <i class="flaticon-bath-tub"></i>
+                                            </div>
+                                            <div class="text-content">{{ prop.bathroom_number }} Bathrooms</div>
+                                        </div>
+                                        <div class="item wow fadeInUp" data-wow-delay="0.2s">
+                                            <div class="icon">
+                                                <i class="flaticon-garage"></i>
+                                            </div>
+                                            <div class="text-content">{{ prop.garage }} Garage</div>
+                                        </div>
+                                    </div>
+                                    <div class="desc">
+                                        <h4 class="wow fadeInUp">Description</h4>
+                                        <p class="wow fadeInUp">
+                                            {{ prop.description | safe }}
+                                        </p>
+                                    </div>
+                                    <div class="address">
+                                        <div class="flex items-center justify-between gap30 flex-wrap wow fadeInUp">
+                                            <h4 class="mb-0">Address</h4>
+                                            <a href="#" class="tf-button-green"><i class="flaticon-location"></i>Open On Google Maps</a>
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="item wow fadeInUp">
+                                                <div class="text">Address</div>
+                                                <p>{{ prop.address }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="text">Zip/Postal Code</div>
+                                                <p>{{ prop.postal_code }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp">
+                                                <div class="text">City</div>
+                                                <p>{{ prop.city }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="text">Area</div>
+                                                <p>{{ prop.area }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp">
+                                                <div class="text">State/county</div>
+                                                <p>{{ prop.state }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="text">Country</div>
+                                                <p>{{ prop.country }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="attachments">
+                                        <h4 class="wow fadeInUp">Property Attachments</h4>
+                                        <div class="wrap-file-item wow fadeInUp">
+                                            <a href="#" class="file-item">
+                                                <div class="icon">
+                                                    <img src="{% static 'assets/images/image-box/file-pdf.svg' %}" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="name">Ultra-Demo-PDF File</div>
+                                                    <div class="size">140.56 kb</div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="file-item">
+                                                <div class="icon">
+                                                    <img src="{% static 'assets/images/image-box/file-pdf.svg' %}" alt="">
+                                                </div>
+                                                <div>
+                                                    <div class="name">Ultra-Demo-PDF File</div>
+                                                    <div class="size">140.56 kb</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="details">
+                                        <h4 class="wow fadeInUp">Details</h4>
+                                        <div class="list-item">
+                                            <div class="item wow fadeInUp">
+                                                <div class="text">Property ID:</div>
+                                                <p>{{ prop.property_id }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="text">Garage:</div>
+                                                <p>1</p>
+                                            </div>
+                                            <div class="item wow fadeInUp">
+                                                <div class="text">Price:</div>
+                                                <p>{{ prop.price }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="text">Garage Size:</div>
+                                                <p>{{ prop.garage_size }} SqFt</p>
+                                            </div>
+                                            <div class="item wow fadeInUp">
+                                                <div class="text">Property Size:</div>
+                                                <p>{{ prop.property_size }} Sq Ft</p>
+                                            </div>
+                                            <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="text">Year Built:</div>
+                                                <p>{{ prop.year_built }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp">
+                                                <div class="text">Bedrooms:</div>
+                                                <p>{{ prop.bedroom_number }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="text">Property Type:</div>
+                                                <p>{{ prop.property_type }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp">
+                                                <div class="text">Bathrooms:</div>
+                                                <p>{{ prop.bathroom_number }}</p>
+                                            </div>
+                                            <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="text">Property Status:</div>
+                                                <p>{{ prop.property_status }}</p>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <div class="energy">
+                                        <h4 class="wow fadeInUp">Energy Class</h4>
+                                        <ul>
+                                            <li class="wow fadeInUp">
+                                                <div class="title">Energetic class:</div>
+                                                <p>A+</p>
+                                            </li>
+                                            <li class="wow fadeInUp">
+                                                <div class="title">Global Energy Performance Index:</div>
+                                                <p>92.42 kWh / m²a</p>
+                                            </li>
+                                            <li class="wow fadeInUp">
+                                                <div class="title">Renewable energy performance index:</div>
+                                                <p>00.00 kWh / m²a</p>
+                                            </li>
+                                            <li class="wow fadeInUp">
+                                                <div class="title">Energy performance of the building:</div>
+                                                <p>50</p>
+                                            </li>
+                                            <li class="wow fadeInUp">
+                                                <div class="title">EPC Current Rating:</div>
+                                                <p>92</p>
+                                            </li>
+                                            <li class="wow fadeInUp">
+                                                <div class="title">EPC Potential Rating:</div>
+                                                <p>80</p>
+                                            </li>
+                                        </ul>
+                                        <img src="{% static 'assets/images/image-box/energy.png' %}" alt="">
+                                    </div>
+                                    <div class="widget-content-inner">
+                                                <div class="features">
+                                                    <h4>Facts & Features</h4>
+                                                    <p>Lorem ipsum dolor sit amet, homero debitis temporibus in mei, at sit voluptua antiopam hendrerit. Lorem epicuri eu per. Mediocrem torquatos deseruisse te eum commodo.</p>
+                                                    <ul>
+                                                        <li>
+                                                            <h5>Interior Details</h5>
+                                                            <div class="wrap-check-ellipse">
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Equipped Kitchen</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Gym</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Laundry</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Media Room</p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <h5>Outdoor Details</h5>
+                                                            <div class="wrap-check-ellipse">
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Back yard</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Basketball court</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Front yard</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Garage Attached</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Hot Bath</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Pool</p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <h5>Utilities Central</h5>
+                                                            <div class="wrap-check-ellipse">
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Central Air</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Electricity</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Heating</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Natural Gas</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Ventilation</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Water</p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <h5>Other Features</h5>
+                                                            <div class="wrap-check-ellipse">
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Chair Accessible</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Elevator </p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Fireplace</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Smoke detectors</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>Washer and dryer</p>
+                                                                </div>
+                                                                <div class="check-ellipse-item">
+                                                                    <div class="icon">
+                                                                        <i class="flaticon-check"></i>
+                                                                    </div>
+                                                                    <p>WiFi</p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                    
+                                   
+                                    <div class="plans">
+                                        <h4 class="wow fadeInUp">Floor Plans</h4>
+                                        <div class="widget-tabs style-3">
+                                            <ul class="widget-menu-tab wow fadeInUp">
+                                                <li class="item-title active">
+                                                    <span class="inner">First Floor</span>
+                                                </li>
+                                                <li class="item-title">
+                                                    <span class="inner">Second Floor</span>
+                                                </li>
+                                                <li class="item-title">
+                                                    <span class="inner">Third Floor</span>
+                                                </li>
+                                            </ul>
+                                            <div class="widget-content-tab">
+                                                <div class="widget-content-inner active">
+                                                    <div class="icons">
+                                                        <div class="item wow fadeInUp">
+                                                            <i class="flaticon-hotel"></i>
+                                                            <div class="text">Bedrooms</div>
+                                                            <p>4</p>
+                                                        </div>
+                                                        <div class="item wow fadeInUp" data-wow-delay="0.1s">
+                                                            <i class="flaticon-bath-tub"></i>
+                                                            <div class="text">Bathrooms</div>
+                                                            <p>2</p>
+                                                        </div>
+                                                        <div class="item wow fadeInUp" data-wow-delay="0.2s">
+                                                            <i class="flaticon-minus-front"></i>
+                                                            <div class="text">Size</div>
+                                                            <p>200 SqFt</p>
+                                                        </div>
+                                                        <div class="item wow fadeInUp" data-wow-delay="0.3s">
+                                                            <i class="flaticon-tag"></i>
+                                                            <div class="text">Price</div>
+                                                            <p>$12.000</p>
+                                                        </div>
+                                                    </div>
+                                                    <p class="wow fadeInUp">Lorem ipsum dolor sit amet, homero debitis temporibus in mei, at sit voluptua antiopam hendrerit. Lorem epicuri eu per. Mediocrem torquatos deseruisse te eum commodo.</p>
+                                                    <img src="{% static 'assets/images/section/blueprint-1.png' %}" alt="">
+                                                </div>
+                                                <div class="widget-content-inner">
+                                                    <div class="icons">
+                                                        <div class="item">
+                                                            <i class="flaticon-hotel"></i>
+                                                            <div class="text">Bedrooms</div>
+                                                            <p>4</p>
+                                                        </div>
+                                                        <div class="item">
+                                                            <i class="flaticon-bath-tub"></i>
+                                                            <div class="text">Bathrooms</div>
+                                                            <p>2</p>
+                                                        </div>
+                                                        <div class="item">
+                                                            <i class="flaticon-minus-front"></i>
+                                                            <div class="text">Size</div>
+                                                            <p>200 SqFt</p>
+                                                        </div>
+                                                        <div class="item">
+                                                            <i class="flaticon-tag"></i>
+                                                            <div class="text">Price</div>
+                                                            <p>$12.000</p>
+                                                        </div>
+                                                    </div>
+                                                    <p>Lorem ipsum dolor sit amet, homero debitis temporibus in mei, at sit voluptua antiopam hendrerit. Lorem epicuri eu per. Mediocrem torquatos deseruisse te eum commodo.</p>
+                                                    <img src="{% static 'assets/images/section/blueprint-1.png' %}" alt="">
+                                                </div>
+                                                <div class="widget-content-inner">
+                                                    <div class="icons">
+                                                        <div class="item">
+                                                            <i class="flaticon-hotel"></i>
+                                                            <div class="text">Bedrooms</div>
+                                                            <p>4</p>
+                                                        </div>
+                                                        <div class="item">
+                                                            <i class="flaticon-bath-tub"></i>
+                                                            <div class="text">Bathrooms</div>
+                                                            <p>2</p>
+                                                        </div>
+                                                        <div class="item">
+                                                            <i class="flaticon-minus-front"></i>
+                                                            <div class="text">Size</div>
+                                                            <p>200 SqFt</p>
+                                                        </div>
+                                                        <div class="item">
+                                                            <i class="flaticon-tag"></i>
+                                                            <div class="text">Price</div>
+                                                            <p>$12.000</p>
+                                                        </div>
+                                                    </div>
+                                                    <p>Lorem ipsum dolor sit amet, homero debitis temporibus in mei, at sit voluptua antiopam hendrerit. Lorem epicuri eu per. Mediocrem torquatos deseruisse te eum commodo.</p>
+                                                    <img src="{% static 'assets/images/section/blueprint-1.png' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculator">
+                                        <h4 class="wow fadeInUp">Mortgage Calculator</h4>
+                                        <div class="pie-chart">
+                                            <div id="morris-donut-1"></div>
+                                            <div class="wrap-note">
+                                                <div class="item">
+                                                    <div class="text">Principal and Interes</div>
+                                                    <p>$37,800.00</p>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="text">Property Tax</div>
+                                                    <p>$214,200.00</p>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="text">HOA fee</div>
+                                                    <p>$252.00</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form class="form-comment">
+                                            <fieldset class="text wow fadeInUp has-top-title">
+                                                <input type="text" placeholder="Total Amount" class="" name="text" tabindex="2" value="" aria-required="true" required="">
+                                                <label for="">Total Amount</label>
+                                            </fieldset>
+                                            <fieldset class="text wow fadeInUp has-top-title" data-wow-delay="0.1s">
+                                                <input type="text" placeholder="Down Payment" class="" name="text" tabindex="2" value="15" aria-required="true" required="">
+                                                <label for="">Down Payment</label>
+                                            </fieldset>
+                                            <fieldset class="text wow fadeInUp has-top-title" data-wow-delay="0.2s">
+                                                <input type="text" placeholder="Interest Rate" class="" name="text" tabindex="2" value="" aria-required="true" required="">
+                                                <label for="">Interest Rate</label>
+                                            </fieldset>
+                                            <fieldset class="text wow fadeInUp has-top-title">
+                                                <input type="text" placeholder="Loan Terms (Years)" class="" name="text" tabindex="2" value="" aria-required="true" required="">
+                                                <label for="">Loan Terms (Years)</label>
+                                            </fieldset>
+                                            <fieldset class="text wow fadeInUp has-top-title" data-wow-delay="0.1s">
+                                                <input type="text" placeholder="Property Tax" class="" name="text" tabindex="2" value="" aria-required="true" required="">
+                                                <label for="">Property Tax</label>
+                                            </fieldset>
+                                            <fieldset class="text wow fadeInUp has-top-title" data-wow-delay="0.2s">
+                                                <input type="text" placeholder="Home Insurance" class="" name="text" tabindex="2" value="" aria-required="true" required="">
+                                                <label for="">Home Insurance</label>
+                                            </fieldset>
+                                            <fieldset class="text wow fadeInUp has-top-title">
+                                                <input type="text" placeholder="Monthly HOA Fees" class="" name="text" tabindex="2" value="" aria-required="true" required="">
+                                                <label for="">Monthly HOA Fees</label>
+                                            </fieldset>
+                                            <fieldset class="text wow fadeInUp has-top-title" data-wow-delay="0.1s">
+                                                <input type="text" placeholder="PMI" class="" name="text" tabindex="2" value="" aria-required="true" required="">
+                                                <label for="">PMI</label>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="contact-info">
+                                        <div class="flex items-center justify-between gap30 flex-wrap wow fadeInUp">
+                                            <h4 class="mb-0">Contact Information</h4>
+                                            <a href="#" class="tf-button-green">View Listing</a>
+                                        </div>
+                                        <div class="person wow fadeInUp">
+                                            <div class="image">
+                                                <img src="{% static 'assets/images/sidebar/agent-1.png' %}" alt="">
+                                            </div>
+                                            <div class="content">
+                                                <div class="name">
+                                                    <a href="#">Jane Cooper</a>
+                                                </div>
+                                                <p>sale@justhome.com</p>
+                                                <p>3-596 95 38 12</p>
+                                            </div>
+                                        </div>
+                                        <div class="title wow fadeInUp">Enquire About This Property</div>
+                                        <form class="form-comment">
+                                            <div class="cols">
+                                                <fieldset class="name wow fadeInUp has-top-title">
+                                                    <input type="text" placeholder="Name" class="" name="text" tabindex="2" value="Ali Tufan" aria-required="true" required="">
+                                                    <label for="">Name</label>
+                                                </fieldset>
+                                                <fieldset class="phone wow fadeInUp has-top-title" data-wow-delay="0.1s">
+                                                    <input type="number" placeholder="Phone" class="" name="number" tabindex="2" value="" aria-required="true" required="">
+                                                    <label for="">Phone</label>
+                                                </fieldset>
+                                            </div>
+                                            <div class="cols">
+                                                <fieldset class="email wow fadeInUp has-top-title">
+                                                    <input type="email" placeholder="Email" class="" name="email" tabindex="2" value="" aria-required="true" required="">
+                                                    <label for="">Email</label>
+                                                </fieldset>
+                                                <div class="nice-select wow fadeInUp" data-wow-delay="0.1s" tabindex="0">
+                                                    <span class="current">Please Select Time</span>
+                                                    <ul class="list">    
+                                                        <li data-value class="option selected">6 AM</li>
+                                                        <li data-value="For Ren" class="option">12 AM</li>
+                                                        <li data-value="Sold" class="option">6 PM</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <fieldset class="message wow fadeInUp has-top-title">
+                                                <textarea name="message" rows="4" placeholder="Message" class="" tabindex="2" aria-required="true" required="">Hello, I am interested in [Renovated apartment at last floor]</textarea>
+                                                <label for="">Message</label>
+                                            </fieldset>
+                                            <div class="checkbox-item wow fadeInUp">
+                                                <label>
+                                                    <p>By submitting this form I agree to<span>Terms of Use</span></p>
+                                                    <input type="checkbox">
+                                                    <span class="btn-checkbox"></span>
+                                                </label>
+                                            </div>
+                                            <div class="button-submit wow fadeInUp">
+                                                <button class="tf-button-primary" type="submit">Request Information<i class="icon-arrow-right-add"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="video">
+                                        <h4 class="wow fadeInUp">Video</h4>
+                                        <div class="video-wrap">
+                                            <img src="{% static 'assets/images/image-box/video-2.jpg' %}" alt="">
+                                            <a href="https://www.youtube.com/watch?v=MLpWrANjFbI" class="popup-youtube">
+                                                <div class="icon">
+                                                    <i class="flaticon-play"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="map">
+                                        <h4 class="wow fadeInUp">Map</h4>
+                                        <div class="wrap-map-v1">
+                                            <div id="map-2" class="row-height" data-map-zoom="16" data-map-scroll="true"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tour">
+                                        <h4 class="wow fadeInUp">360° Virtual Tour</h4>
+                                        <div class="image">
+                                            <img src="{% static 'assets/images/image-box/img-virtual-1.jpg' %}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="page-views">
+                                        <h4 class="wow fadeInUp">Property Views</h4>
+                                        <div class="area-chart">
+                                            <div id="line-chart-5"></div>
+                                        </div>
+                                    </div>
+                                    <div class="walk-score">
+                                        <h4 class="wow fadeInUp">Walk Score</h4>
+                                        <div class="wrap-walk-score">
+                                            <div class="walk-score-item wow fadeInUp">
+                                                <div class="icon">
+                                                    <i class="flaticon-walk"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="title">Walk Score®</div>
+                                                    <p>96 / 100</p>
+                                                    <p>Walker's Paradise</p>
+                                                </div>
+                                            </div>
+                                            <div class="walk-score-item wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="icon">
+                                                    <i class="flaticon-bike"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="title">Bike Score®</div>
+                                                    <p>96 / 100</p>
+                                                    <p>Bikeable</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="nearby">
+                                        <h4 class="wow fadeInUp">What's Nearby?</h4>
+                                        <div class="widget-tabs style-2 type-small">
+                                            <ul class="widget-menu-tab wow fadeInUp">
+                                                <li class="item-title active">
+                                                    <span class="inner">Schools</span>
+                                                </li>
+                                                <li class="item-title">
+                                                    <span class="inner">Food</span>
+                                                </li>
+                                                <li class="item-title">
+                                                    <span class="inner">Health & Medical</span>
+                                                </li>
+                                            </ul>
+                                            <div class="widget-content-tab">
+                                                <div class="widget-content-inner active">
+                                                    <div class="wrap-nearby">
+                                                        <div class="nearby-item wow fadeInUp">
+                                                            <div class="number">
+                                                                <h4>9<span>/10</span></h4>
+                                                            </div>
+                                                            <div>
+                                                                <div class="title">Ps 95 Eastwood</div>
+                                                                <div class="flex items-center gap15">
+                                                                    <p>Grades: <span>K-5</span></p>
+                                                                    <p>Distance: <span>0.3 mi</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nearby-item wow fadeInUp">
+                                                            <div class="number">
+                                                                <h4>5<span>/10</span></h4>
+                                                            </div>
+                                                            <div>
+                                                                <div class="title">Is 238 Susan B Anthony</div>
+                                                                <div class="flex items-center gap15">
+                                                                    <p>Grades: <span>K-5</span></p>
+                                                                    <p>Distance: <span>0.3 mi</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nearby-item wow fadeInUp">
+                                                            <div class="number">
+                                                                <h4>3<span>/10</span></h4>
+                                                            </div>
+                                                            <div>
+                                                                <div class="title">Cambria Heights Academy</div>
+                                                                <div class="flex items-center gap15">
+                                                                    <p>Grades: <span>K-5</span></p>
+                                                                    <p>Distance: <span>0.3 mi</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-inner">
+                                                    <div class="wrap-nearby">
+                                                        <div class="nearby-item">
+                                                            <div class="number">
+                                                                <h4>9<span>/10</span></h4>
+                                                            </div>
+                                                            <div>
+                                                                <div class="title">Ps 95 Eastwood</div>
+                                                                <div class="flex items-center gap15">
+                                                                    <p>Grades: <span>K-5</span></p>
+                                                                    <p>Distance: <span>0.3 mi</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nearby-item">
+                                                            <div class="number">
+                                                                <h4>5<span>/10</span></h4>
+                                                            </div>
+                                                            <div>
+                                                                <div class="title">Is 238 Susan B Anthony</div>
+                                                                <div class="flex items-center gap15">
+                                                                    <p>Grades: <span>K-5</span></p>
+                                                                    <p>Distance: <span>0.3 mi</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nearby-item">
+                                                            <div class="number">
+                                                                <h4>3<span>/10</span></h4>
+                                                            </div>
+                                                            <div>
+                                                                <div class="title">Cambria Heights Academy</div>
+                                                                <div class="flex items-center gap15">
+                                                                    <p>Grades: <span>K-5</span></p>
+                                                                    <p>Distance: <span>0.3 mi</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-inner">
+                                                    <div class="wrap-nearby">
+                                                        <div class="nearby-item">
+                                                            <div class="number">
+                                                                <h4>9<span>/10</span></h4>
+                                                            </div>
+                                                            <div>
+                                                                <div class="title">Ps 95 Eastwood</div>
+                                                                <div class="flex items-center gap15">
+                                                                    <p>Grades: <span>K-5</span></p>
+                                                                    <p>Distance: <span>0.3 mi</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nearby-item">
+                                                            <div class="number">
+                                                                <h4>5<span>/10</span></h4>
+                                                            </div>
+                                                            <div>
+                                                                <div class="title">Is 238 Susan B Anthony</div>
+                                                                <div class="flex items-center gap15">
+                                                                    <p>Grades: <span>K-5</span></p>
+                                                                    <p>Distance: <span>0.3 mi</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nearby-item">
+                                                            <div class="number">
+                                                                <h4>3<span>/10</span></h4>
+                                                            </div>
+                                                            <div>
+                                                                <div class="title">Cambria Heights Academy</div>
+                                                                <div class="flex items-center gap15">
+                                                                    <p>Grades: <span>K-5</span></p>
+                                                                    <p>Distance: <span>0.3 mi</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reviews-wrap">
+                                        <div class="flex justify-between items-center mb-40 wow fadeInUp">
+                                            <h4 class="mb-0">4 Reviews</h4>
+                                            <a href="#" class="tf-button-green">Leave a Review</a>
+                                        </div>
+                                        <ul>
+                                            <li class="wow fadeInUp">
+                                                <div class="image">
+                                                    <img src="{% static 'assets/images/author/author-5.png' %}" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <div class="ratings">
+                                                        <i class="flaticon-star-1"></i>
+                                                        <i class="flaticon-star-1"></i>
+                                                        <i class="flaticon-star-1"></i>
+                                                        <i class="flaticon-star-1"></i>
+                                                        <i class="flaticon-star-1"></i>
+                                                    </div>
+                                                    <div class="name">
+                                                        <a href="#">Jane Cooper</a>
+                                                    </div>
+                                                    <div class="time">April 06, 2024 at 7:55 pm</div>
+                                                    <p>Beautiful home, very picturesque and close to everything in jtree! A little warm for a hot weekend, but would love to come back during the cooler seasons!</p>
+                                                </div>
+                                            </li>
+                                            <li class="wow fadeInUp">
+                                                <div class="image">
+                                                    <img src="{% static 'assets/images/author/author-6.png' %}" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <div class="ratings">
+                                                        <i class="flaticon-star-1"></i>
+                                                        <i class="flaticon-star-1"></i>
+                                                        <i class="flaticon-star-1"></i>
+                                                        <i class="flaticon-star-1"></i>
+                                                        <i class="flaticon-star-1"></i>
+                                                    </div>
+                                                    <div class="name">
+                                                        <a href="#">Jane Cooper</a>
+                                                    </div>
+                                                    <div class="time">April 06, 2024 at 7:55 pm</div>
+                                                    <p>Beautiful home, very picturesque and close to everything in jtree! A little warm for a hot weekend, but would love to come back during the cooler seasons!</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="leave-a-review">
+                                        <h4 class="wow fadeInUp">Leave A Review</h4>
+                                        <p class="wow fadeInUp">Your email address will not be published. Required fields are marked *</p>
+                                        <div>
+                                            <p class="wow fadeInUp">Your Rating *</p>
+                                            <div class="ratings wow fadeInUp">
+                                                <i class="flaticon-star-1"></i>
+                                                <i class="flaticon-star-1"></i>
+                                                <i class="flaticon-star-1"></i>
+                                                <i class="flaticon-star-1"></i>
+                                                <i class="flaticon-star-1"></i>
+                                            </div>
+                                        </div>
+                                        <form class="form-comment">
+                                            <fieldset class="message wow fadeInUp has-top-title">
+                                                <textarea name="message" rows="4" placeholder="Your Comment" class="" tabindex="2" aria-required="true" required="">Lorem Ipsum</textarea>
+                                                <label for="">Your Comment</label>
+                                            </fieldset> 
+                                            <div class="cols">
+                                                <fieldset class="name wow fadeInUp has-top-title">
+                                                    <input type="text" placeholder="Name" class="" name="text" tabindex="2" value="Ali Tufan" aria-required="true" required="">
+                                                    <label for="">Name</label>
+                                                </fieldset>
+                                                <fieldset class="email wow fadeInUp has-top-title">
+                                                    <input type="email" placeholder="Email" class="" name="email" tabindex="2" value="themesflat@gmail.com" aria-required="true" required="">
+                                                    <label for="">Email</label>
+                                                </fieldset>
+                                            </div>
+                                            <fieldset class="website wow fadeInUp has-top-title">
+                                                <input type="text" placeholder="Website" class="" name="text" tabindex="2" value="" aria-required="true" required="">
+                                                <label for="">Website</label>
+                                            </fieldset>
+                                            <div class="checkbox-item wow fadeInUp">
+                                                <label>
+                                                    <p>Save my name, email, and website in this browser for the next time I comment.</p>
+                                                    <input type="checkbox">
+                                                    <span class="btn-checkbox"></span>
+                                                </label>
+                                            </div>
+                                            <div class="button-submit wow fadeInUp">
+                                                <button class="tf-button-primary" type="submit">Submit Review <i class="icon-arrow-right-add"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="smilar-homes">
+                                        <h4 class="wow fadeInUp">Similar Homes</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="box-dream has-border wow fadeInUp">
+                                                    <div class="image">
+                                                        <div class="list-tags">
+                                                            <a href="#" class="tags-item for-sell">FOR RENT</a>
+                                                            <a href="#" class="tags-item featured">FEATURED</a>
+                                                        </div>
+                                                        <div class="button-heart"><i class="flaticon-heart-1"></i></div>
+                                                        <div class="swiper-container slider-box-dream arrow-style-1 pagination-style-1">
+                                                            <div class="swiper-wrapper">
+                                                                <div class="swiper-slide">
+                                                                    <div class="w-full">
+                                                                        <img class="w-full" src="{% static 'assets/images/house/home-1.jpg' %}" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <div class="w-full">
+                                                                        <img class="w-full" src="{% static 'assets/images/house/home-2.jpg' %}" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <div class="w-full">
+                                                                        <img class="w-full" src="{% static 'assets/images/house/home-3.jpg' %}" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <div class="w-full">
+                                                                        <img class="w-full" src="{% static 'assets/images/house/home-4.jpg' %}" alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="swiper-pagination box-dream-pagination"></div>
+                                                            <div class="box-dream-next swiper-button-next"></div>
+                                                            <div class="box-dream-prev swiper-button-prev"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="content">
+                                                        <div class="head">
+                                                            <div class="title">
+                                                                <a href="property-single-v1.html">Home Pitt Street</a>
+                                                            </div>
+                                                            <div class="price">$815,000</div>
+                                                        </div>
+                                                        <div class="location">
+                                                            <div class="icon">
+                                                                <i class="flaticon-location"></i>
+                                                            </div>
+                                                            <p>148-37 88th Ave, Jamaica, NY 11435</p>
+                                                        </div>
+                                                        <div class="icon-box">
+                                                            <div class="item">
+                                                                <i class="flaticon-hotel"></i>
+                                                                <p>4 Beds</p>
+                                                            </div>
+                                                            <div class="item">
+                                                                <i class="flaticon-bath-tub"></i>
+                                                                <p>3 Baths</p>
+                                                            </div>
+                                                            <div class="item">
+                                                                <i class="flaticon-minus-front"></i>
+                                                                <p>2660 Sqft</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="box-dream has-border wow fadeInUp" data-wow-delay="0.1s">
+                                                    <div class="image">
+                                                        <div class="list-tags">
+                                                            <a href="#" class="tags-item for-sell">FOR SELL</a>
+                                                        </div>
+                                                        <div class="button-heart"><i class="flaticon-heart-1"></i></div>
+                                                        <div class="swiper-container slider-box-dream arrow-style-1 pagination-style-1">
+                                                            <div class="swiper-wrapper">
+                                                                <div class="swiper-slide">
+                                                                    <div class="w-full">
+                                                                        <img class="w-full" src="{% static 'assets/images/house/home-2.jpg' %}" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <div class="w-full">
+                                                                        <img class="w-full" src="{% static 'assets/images/house/home-1.jpg' %}" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <div class="w-full">
+                                                                        <img class="w-full" src="{% static 'assets/images/house/home-3.jpg' %}" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <div class="w-full">
+                                                                        <img class="w-full" src="{% static 'assets/images/house/home-4.jpg' %}" alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="swiper-pagination box-dream-pagination"></div>
+                                                            <div class="box-dream-next swiper-button-next"></div>
+                                                            <div class="box-dream-prev swiper-button-prev"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="content">
+                                                        <div class="head">
+                                                            <div class="title">
+                                                                <a href="property-single-v1.html">Luxury Mansion</a>
+                                                            </div>
+                                                            <div class="price">$815,000</div>
+                                                        </div>
+                                                        <div class="location">
+                                                            <div class="icon">
+                                                                <i class="flaticon-location"></i>
+                                                            </div>
+                                                            <p>148-37 88th Ave, Jamaica, NY 11435</p>
+                                                        </div>
+                                                        <div class="icon-box">
+                                                            <div class="item">
+                                                                <i class="flaticon-hotel"></i>
+                                                                <p>4 Beds</p>
+                                                            </div>
+                                                            <div class="item">
+                                                                <i class="flaticon-bath-tub"></i>
+                                                                <p>3 Baths</p>
+                                                            </div>
+                                                            <div class="item">
+                                                                <i class="flaticon-minus-front"></i>
+                                                                <p>2660 Sqft</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="property-single-sidebar po-sticky">
+                                    
+                                
+                                <div class="property-single-sidebar">
+                                    <div class="sidebar-item sidebar-request">
+                                        <div class="text">
+                                           Reserve Property
+                                            
+                                        </div>
+                                        <a href="#" class="tf-button-primary w-full">Reserve Property<i class="icon-arrow-right-add"></i></a>
+                                        
+                                    </div>
+                                    
+                                    <div class="sidebar-item sidebar-schedule">
+                                        <div class="sidebar-title">Schedule a tour</div>
+                                        <form class="form-schedule" method="post">
+                                            {% csrf_token %}
+                                            <div class="cols">
+                                                <fieldset class="message has-top-title">
+                                                    <input type="date" name="tour_date" >
+                                                    <label for="">Tour Date</label>
+                                                </fieldset>
+                                                <fieldset class="message has-top-title">
+                                                    <input type="time" name="tour_time" >
+                                                    <label for="">Tour Time</label>
+                                                </fieldset>
+                                            </div>
+                                            <div class="widget-tabs style-4">
+                                                <ul class="widget-menu-tab">
+                                                    <li class="item-title active" data-value="In Person">
+                                                        <span value="In Person" class="inner">In Person</span>
+                                                    </li>
+                                                    <li class="item-title" data-value="Virtual">
+                                                        <span value="Virtual" class="inner">Video Chat</span>
+                                                    </li>
+
+                                                </ul>
+                                                <input type="hidden" name="tour_type" value="In Person">
+                                                <div class="widget-content-tab">
+                                                    <div class="widget-content-inner active">
+                                                        
+                                                        <fieldset class="message has-top-title">
+                                                            <textarea name="message" rows="4" placeholder="Your Comment" class="" tabindex="2" aria-required="true" required="">Lorem Ipsum Dolar Sit Amet</textarea>
+                                                            <label for="">Message</label>
+                                                        </fieldset>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="button-submit">
+                                                <button class="tf-button-primary w-full" type="submit">Submit a Tour Request<i class="icon-arrow-right-add"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="sidebar-item sidebar-contact-info">
+                                        <div class="sidebar-title">Contact Information</div>
+                                        <div class="contact-info">
+                                            <div class="person">
+                                                <div class="image">
+                                                    <img src="{% static 'assets/images/sidebar/agent-1.png' %}" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <div class="name">
+                                                        <a href="#">Jane Cooper</a>
+                                                    </div>
+                                                    <p>sale@justhome.com</p>
+                                                    <p>3-596 95 38 12</p>
+                                                </div>
+                                            </div>
+                                            <form class="form-comment">
+                                                <div class="cols">
+                                                    <fieldset class="name has-top-title">
+                                                        <input type="text" placeholder="Name" class="" name="text" tabindex="2" value="Ali Tufan" aria-required="true" required="">
+                                                        <label for="">Name</label>
+                                                    </fieldset>
+                                                    <fieldset class="phone has-top-title">
+                                                        <input type="number" placeholder="Phone" class="" name="number" tabindex="2" value="" aria-required="true" required="">
+                                                        <label for="">Phone</label>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="cols">
+                                                    <fieldset class="email has-top-title">
+                                                        <input type="email" placeholder="Email" class="" name="email" tabindex="2" value="" aria-required="true" required="">
+                                                        <label for="">Email</label>
+                                                    </fieldset>
+                                                    <div class="nice-select" tabindex="0">
+                                                        <span class="current">Please Select Time</span>
+                                                        <ul class="list ">    
+                                                            <li data-value class="option selected">6 AM</li>
+                                                            <li data-value="For Ren" class="option">12 AM</li>
+                                                            <li data-value="Sold" class="option">6 PM</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <fieldset class="message has-top-title">
+                                                    <textarea name="message" rows="4" placeholder="Message" class="" tabindex="2" aria-required="true" required=""></textarea>
+                                                    <label for="">Message</label>
+                                                </fieldset>
+                                                <div class="button-submit">
+                                                    <button class="tf-button-primary w-full" type="submit">Send Message<i class="icon-arrow-right-add"></i></button>
+                                                </div>
+                                                <div class="flex gap20">
+                                                    <a href="#" class="tf-button-primary w-full style-bg-white">Call<i class="flaticon-phone"></i></a>
+                                                    <a href="#" class="tf-button-primary w-full style-bg-white">WhatsApp<i class="flaticon-whatsapp"></i></a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /property-single-wrap -->
+
+            </div>
+            <!-- /main-content -->
+
+            <!-- footer -->
+            <footer class="footer">
+                <div class="footer-inner">
+                    <div class="footer-inner-wrap">
+                        <div class="top-footer">
+                            <div class="logo-footer">
+                                <a href="index.html">
+                                    <img id="logo-footer" src="{% static 'assets/images/logo/logo-footer.svg' %}" alt="images" >
+                                </a>
+                            </div>
+                            <div class="wg-social">
+                                <span>Follow Us</span>
+                                <ul class="list-social">
+                                    <li>
+                                        <a href="#">
+                                            <i class="icon-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="icon-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="icon-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="icon-linkedin2"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="center-footer">
+                            <div class="footer-cl-1">
+                                <div class="ft-title">Subscribe</div>
+                                <form class="form-subscribe style-line-bottom">
+                                    <fieldset class="email">
+                                        <input type="email" placeholder="Your e-mail" class="style-1" name="email" tabindex="2" value="" aria-required="true" required="">
+                                    </fieldset>
+                                    <div class="button-submit style-absolute-right">
+                                        <button class="tf-button-bg" type="submit">Send <i class="icon-arrow-right-add"></i></button>
+                                    </div>
+                                </form>
+                                <div class="text">Subscribe to our newsletter to receive our weekly feed.</div>
+                            </div>
+                            <div class="footer-cl-2">
+                                <div class="ft-title">Discover</div>
+                                <ul class="navigation-menu-footer">
+                                    <li><a href="property-map-v1.html">Miami</a></li>
+                                    <li><a href="property-map-v1.html">New York</a></li>
+                                    <li><a href="property-map-v1.html">Chicago</a></li>
+                                    <li><a href="property-map-v1.html">Sacramento</a></li>
+                                    <li><a href="#">Los Angeles</a></li>
+                                    <li><a href="#">San Francisco</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-cl-3">
+                                <div class="ft-title">Quick Links</div>
+                                <ul class="navigation-menu-footer">
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="faq.html">Faq</a></li>
+                                    <li><a href="blog-list-v1.html">Blog</a></li>
+                                    <li><a href="pricing.html">Pricing Plans</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms &amp; Conditions</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-cl-4">
+                                <div class="ft-title">Contact Us</div>
+                                <ul class="navigation-menu-footer">
+                                    <li><div class="text">hi@justhome.com (123) 456-7890</div></li>
+                                </ul>
+                            </div>
+                            <div class="footer-cl-5">
+                                <div class="ft-title">Our Address</div>
+                                <ul class="navigation-menu-footer">
+                                    <li><div class="text">90 Fifth Avenue, 3rd Floor San Francisco, CA 1980</div></li>
+                                </ul>
+                            </div>
+                            <div class="footer-cl-6">
+                                <div class="ft-title">Get the app</div>
+                                <ul class="ft-download">
+                                    <li>
+                                        <a href="#">
+                                            <div class="icon">
+                                                <i class="icon-appleinc"></i>
+                                            </div>
+                                            <div class="app">
+                                                <div>Download on the</div>
+                                                <div>Apple Store</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="icon">
+                                                <i class="icon-ch-play"></i>
+                                            </div>
+                                            <div class="app">
+                                                <div>Get in on</div>
+                                                <div>Google Play</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bottom-footer">
+                            <div class="text">Copyright © 2024. JustHome</div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- /footer -->
+
+        </div>
+        <!-- /#page -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- go top button -->
+    <div class="progress-wrap active-progress">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+        </svg>
+    </div>
+    <!-- /go top button -->
+
+    <!-- login-popup -->
+    <div class="modal fade col-4" id="modallogin">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="justify-content: center; align-items: center; display: flex;">
+        <div class="modal-content modal-sm" style="max-width: 500px !important">
+            <a href="#" class="btn-hide-modal" data-bs-dismiss="modal"><i class="icon-close"></i></a>
+             
+            <div class="content-right">
+                <h4>Like Property: {{ prop.title }}</h4>
+
+                <!-- Form to like the property -->
+                <form class="form-login" method="POST" action="{% url 'main:property_detail' property_id=prop.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="like_property" value="true">
+                    
+                    <div class="button-submit">
+                        <button class="tf-button-primary w-full" type="submit">
+                            {% if liked %}
+                                Unlike Property
+                            {% else %}
+                                Like Property
+                            {% endif %}
+                            <i class="icon-arrow-right-add"></i>
+                        </button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- /login-popup -->
+
+
+<!-- login-popup -->
+    <div class="modal fade col-4" id="modalbookmark">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="justify-content: center; align-items: center; display: flex;">
+        <div class="modal-content modal-sm" style="max-width: 500px !important">
+            <a href="#" class="btn-hide-modal" data-bs-dismiss="modal"><i class="icon-close"></i></a>
+             
+            <div class="content-right">
+                <h4>Bookmark Property: {{ prop.title }}</h4>
+
+                <!-- Form to like the property -->
+                <form class="form-login" method="POST" action="{% url 'main:property_detail' property_id=prop.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="bookmark_property" value="true">
+                    
+                    <div class="button-submit">
+                        <button class="tf-button-primary w-full" type="submit">
+                            {% if bookmark %}
+                                Remove from Bookmark
+                            {% else %}
+                                Bookmark
+                            {% endif %}
+                            <i class="icon-arrow-right-add"></i>
+                        </button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- /login-popup -->
+   
+    <script>
+    document.querySelectorAll('.widget-menu-tab .item-title').forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove 'active' class from all tabs
+            document.querySelectorAll('.widget-menu-tab .item-title').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add 'active' class to the clicked tab
+            this.classList.add('active');
+
+            // Update the hidden input with the selected value
+            document.querySelector('input[name="tour_type"]').value = this.dataset.value;
+        });
+    });
+</script>
+
+    <!-- Javascript -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/swiper.js' %}"></script>
+    <script src="{% static 'assets/js/countto.js' %}"></script>
+    <script src="{% static 'assets/js/circletype.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFC3m2n0jBRFTMvUNZc0-6Y0Rzlcadzcw"></script>
+    <script src="{% static 'assets/js/maps-2.js' %}"></script>
+    <script src="{% static 'assets/js/marker.js' %}"></script>
+    <script src="{% static 'assets/js/infobox.min.js' %}"></script>
+    <script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/apexcharts.js' %}"></script>
+    <script src="{% static 'assets/js/area-chart.js' %}"></script>
+    <script src="{% static 'assets/js/morris.min.js' %}"></script>
+    <script src="{% static 'assets/js/raphael.min.js' %}"></script>
+    <script src="{% static 'assets/js/morris.js' %}"></script>
+    <script src="{% static 'assets/js/nouislider.min.js' %}"></script>
+    <script src="{% static 'assets/js/rangle-slider.js' %}"></script>
+    <script src="{% static 'assets/js/mmenu.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/scrollmagic.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script>
+        new Mmenu(document.querySelector("#menu"));
+    </script>
+
+</body>
+
+
+<!-- Mirrored from creativelayers.net/themes/justhome-html/property-single-v4.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Sep 2024 07:39:09 GMT -->
+</html>

@@ -1,0 +1,60 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- main-content -->
+    <div class="main-content spacing-20" style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="notification is-toast alert alert-{{message.tags}} text-center" role="alert" style="background-color: red; color: #fff; border-radius: 6px; font-weight: 600; z-index: 1;">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="layout-wrap-inner" style="display: flex; align-items: center; justify-content: center; width: 100%; max-width: 1000px;">
+
+            <!-- section-content-right -->
+            <div class="section-content col-6" style="text-align: center;">
+                <h3>Sign In</h3>
+                <div class="text-content mb-20">Enter Credentials to sign in!</div>
+
+                <div class="wg-box pl-44 mb-20">
+                    
+                    <div class="my-profiles-wrap">
+                        <form class="form-profiles flex gap30 flex-column" method="post">
+                            {% csrf_token %}
+                            <div class="cols">
+                                <fieldset class="email has-top-title">
+                                    <input type="text" placeholder="Email" class="" name="username" tabindex="2" value="123456" aria-required="true" required="">
+                                    <label for="">Username</label>
+                                </fieldset>
+                            </div>
+                            <div class="cols">
+                                <fieldset class="email has-top-title">
+                                    <input type="password" placeholder="Password" class="" name="password" tabindex="2" value="123456" aria-required="true" required="">
+                                    <label for="">Password</label>
+                                </fieldset>
+                            </div>
+                            <div class="button-submit mt-10 flex items-center justify-between">
+                                <button class="tf-button-primary" type="submit">Sign In<i class="icon-arrow-right-add"></i></button>
+                                <a href="{% url 'main:forgot_password' %}" class="lost-password"><p>Lost your password?</p></a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="bottom-page">
+                    <p>Don't have an account <span data-bs-toggle="modal" data-bs-target="#modalregister">Register</a></p>
+                </div>
+            </div>
+            <!-- /section-content-right -->
+
+        </div>
+
+    </div>
+    <!-- /main-content -->
+
+{% endblock %}

@@ -1,0 +1,227 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+
+<!-- Mirrored from creativelayers.net/themes/justhome-html/dashboard-my-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Sep 2024 07:39:28 GMT -->
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>JustHome - Real Estate HTML Template</title>
+
+    <meta name="author" content="creativelayers">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animation.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/nouislider.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/nice-select.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap-select.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/magnific-popup.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/mmenu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+
+    <!-- Font -->
+    <link rel="stylesheet" href="font/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/flaticon_just-home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icon/icomoon/style.css' %}">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'assets/images/favicon.png' %}">
+
+</head>
+
+<body class="body dashboard">
+
+    <!-- preload -->
+    <div class="preload preload-container">
+        <div class="middle"></div>
+    </div>
+    <!-- /preload -->
+
+    <!-- #wrapper -->
+    <div id="wrapper">
+        <!-- #page -->
+        <div id="page" class="layout-wrap background-F9F9F9">
+            
+            <!-- header -->
+            <header id="header_main" class="header header-fixed type-home2 style-bg-white style-absolute">
+                <div class="header-inner"> 
+                    <div class="header-inner-wrap">
+                        <div id="site-logo">
+                            <a href="index.html" rel="home">
+                                <img class="d-block" id="logo-header" src="{% static 'assets/images/logo/logo.svg' %}"  alt="">
+                            </a>
+                        </div>
+                        <nav class="main-menu">
+                            <ul class="navigation">
+                                <li class="has-children current"><a href="javascript:void(0);">Home</a>
+                                    
+                                </li>
+                                <li class="has-children"><a href="javascript:void(0);">Property</a></li>
+                                        
+                                <li class="has-children"><a href="javascript:void(0);">Realtor</a></li>
+                                
+                                <li>
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="header-right">
+                            <div class="header-call">
+                                <div class="icon">
+                                    <i class="flaticon-phone"></i>
+                                </div>
+                                <div class="number">800-555-6789</div>
+                            </div>
+                            <div data-bs-toggle="modal" data-bs-target="#modallogin" class="header-user">
+                                <div class="icon">
+                                    <i class="flaticon-user"></i>
+                                </div>
+                            </div>
+                            <div class="header-btn">
+                                <a href="dashboard-add-properties.html" class="tf-button-default">Add Listing</a>
+                            </div>
+                        </div>
+                        <a class="mobile-nav-toggler mobile-button" href="#menu"></a>
+                    </div>
+                </div>
+                <nav id="menu">
+                    <a class="close" aria-label="Close menu" href="#mm-22">
+                        <i class="icon-close"></i>
+                    </a>
+                    <ul>
+                        <li class="current">
+                            <span>Home</span>
+                            
+                        </li>
+                        <li>
+                            <span>Property</span>
+                            
+                        </li>
+                        <li>
+                            <span>Realtor</span>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- /header -->
+
+            {% block content %}
+
+            {% endblock %}
+
+            <!-- register-popup -->
+    <div class="modal fade modalCenter" id="modalregister">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            
+            <div class="modal-content modal-sm">
+                <a href="#" class="btn-hide-modal" data-bs-dismiss="modal"><i class="icon-close"></i></a>
+                <div class="image-left">
+                    <img src="{% static 'assets/images/section/login.jpg' %}" alt="">
+                    <h3>Welcome to Your Real Estate Website</h3>
+
+                    {% if messages %}
+    {% for message in messages %}
+        <div class="notification is-toast alert alert-{{message.tags}} text-center" role="alert" style="background-color: red; color: #fff; border-radius: 6px; font-weight: 600; z-index: 1;">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+                </div>
+                <div class="content-right">
+                    <h4>Create an account</h4>
+                    <form method="post" class="form-login" action="{% url 'main:sign_in' %}">
+                        {% csrf_token %}
+                        <fieldset class="name">
+                            <input type="text" placeholder="First Name" class="" name="first_name" tabindex="2" value="" aria-required="true" required="">
+                        </fieldset>
+                        <fieldset class="name">
+                            <input type="text" placeholder="Last Name" class="" name="last_name" tabindex="2" value="" aria-required="true" required="">
+                        </fieldset>
+                        <fieldset class="email">
+                            <input type="email" placeholder="Email" class="" name="username" tabindex="2" value="" aria-required="true" required="">
+                        </fieldset>
+                        <fieldset class="password">
+                            <input type="password" placeholder="Password" class="" name="password1" tabindex="2" value="" aria-required="true" required="">
+                        </fieldset>
+                        <fieldset class="password">
+                            <input type="password" placeholder="Retype Password" class="" name="password2" tabindex="2" value="" aria-required="true" required="">
+                        </fieldset>
+                        <div class="flex items-center justify-between">
+                            <div class="checkbox-item">
+                                <label>
+                                    <p>I agree with terms & conditions</p>
+                                    <input type="checkbox">
+                                    <span class="btn-checkbox"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="button-submit">
+                            <button class="tf-button-primary w-full" type="submit">Register<i class="icon-arrow-right-add"></i></button>
+                        </div>
+                    </form>
+                    <div class="flex items-center justify-center">
+                        <p>Have an account?</p>
+                        <a href="#" class="btn-show-register" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modallogin">Log in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /register-popup -->
+
+
+                <!-- Javascript -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/swiper.js' %}"></script>
+    <script src="{% static 'assets/js/countto.js' %}"></script>
+    <script src="{% static 'assets/js/circletype.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFC3m2n0jBRFTMvUNZc0-6Y0Rzlcadzcw"></script>
+    <script src="{% static 'assets/js/maps.js' %}"></script>
+    <script src="{% static 'assets/js/marker.js' %}"></script>
+    <script src="{% static 'assets/js/infobox.min.js' %}"></script>
+    <script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/apexcharts.js' %}"></script>
+    <script src="{% static 'assets/js/area-chart.js' %}"></script>
+    <script src="{% static 'assets/js/morris.min.js' %}"></script>
+    <script src="{% static 'assets/js/raphael.min.js' %}"></script>
+    <script src="{% static 'assets/js/morris.js' %}"></script>
+    <script src="{% static 'assets/js/nouislider.min.js' %}"></script>
+    <script src="{% static 'assets/js/rangle-slider.js' %}"></script>
+    <script src="{% static 'assets/js/mmenu.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/scrollmagic.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script>
+        new Mmenu(document.querySelector("#menu"));
+    </script>
+
+</body>
+
+
+<!-- Mirrored from creativelayers.net/themes/justhome-html/dashboard-my-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Sep 2024 07:39:28 GMT -->
+</html>

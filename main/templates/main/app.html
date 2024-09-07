@@ -1,0 +1,436 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+
+            <!-- main-content -->
+            <div class="main-content px-20">
+
+                <div class="space-20"></div>
+
+                <!-- flat-title -->
+                <div class="flat-title page-property-list-3">
+                    <div class="cl-container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="content">
+                                    <h2 class="wow fadeInUp">Real Estate & Homes For Sale</h2>
+                                    <ul class="breadcrumbs wow fadeInUp">
+                                        <li><a href="index.html">Home</a></li><li>/</li><li>Property List</li>
+                                    </ul>
+                                    <div class="form-filter wow fadeInUp">
+                                        <form class="form-search-home5" method="POST">
+                                            {% csrf_token %}
+                                            <div class="list">
+                                                <div class="group-form">
+                                                    <div class="form-style-has-title">
+                                                        <div class="title">Property Type</div>
+                                                        <div class="nice-select" tabindex="0">
+                                                            <span class="current" class="">All Property Types</span>
+                                                            <ul class="list style-radio">    
+                                                                {% for type in property_types %}
+                                                                <li data-value="{{ type }}" class="option selected">{{ type }}</li>
+                                                                
+                                                                {% endfor %}
+                                                            </ul>
+                                                             <input type="hidden" name="property_type" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="divider-1"></div>
+
+                                                <div class="group-form">
+                                                    <div class="form-style-has-title">
+                                                        <div class="title">Country:</div>
+                                                        <div class="nice-select" tabindex="0">
+                                                            <span class="current">All Countries</span>
+                                                            <ul class="list style-radio"> 
+                                                            {% for country in countries %}   
+                                                                <li data-value="{{ country }}" class="option selected">{{ country }}</li>
+                                                            {% endfor %}
+                                                            </ul>
+                                                            <input type="hidden" name="country" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="divider-1"></div>
+                                                <div class="group-form">
+                                                    <div class="form-style-has-title">
+                                                        <div class="title">Category:</div>
+                                                        <div class="nice-select" tabindex="0">
+                                                            <span class="current">All Categories</span>
+                                                            <ul class="list style-radio"> 
+                                                            {% for category in categories %}   
+                                                                <li data-value="{{ category }}" class="option selected">{{ category }}</li>
+                                                            {% endfor %}
+                                                            </ul>
+                                                            <input type="hidden" name="category" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="divider-1"></div>
+                                                <div class="group-form">
+                                                    <div class="form-style-has-title">
+                                                        <div class="title">Property Status:</div>
+                                                        <div class="nice-select" tabindex="0">
+                                                            <span class="current">All Status</span>
+                                                            <ul class="list">  
+                                                            {% for status in property_statuses %}  
+                                                                <li data-value="{{ status }}" class="option selected">{{ status }}</li>
+                                                            {% endfor %}
+                                                            </ul>
+                                                            <input type="hidden" name="property_status" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex gap10">
+                                                
+                                                <div class="group-form">
+                                                    <div class="button-submit">
+                                                        <button class="" type="submit">Search</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /flat-title -->
+
+                <!-- property-grid -->
+                <div class="property-list-wrap-v3">
+                    <div class="cl-container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="top">
+                                    <div class="sub">
+                                        <p class="wow fadeInUp">{{ properties|length }} results</p>
+                                        <div class="sort-wrap wow fadeInUp" data-wow-delay="0.1s">
+                                            <p>Sort by</p>
+                                            <div class="nice-select default" tabindex="0">
+                                                <span class="current">Newest listings</span>
+                                                <ul class="list">    
+                                                     <li data-value="newest" class="option selected">Newest</li>
+                                                    <li data-value="oldest" class="option">Oldest</li>
+                                                </ul>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row list">
+                                    {% for item in properties %}
+                                    <div class="col-xl-6">
+                                        
+                                        <div class="box-dream has-border wow fadeInUp">
+                                            
+                                            <div class="image">
+                                                <div class="list-tags">
+                                                    <a href="#" class="tags-item for-sell">{{ item.property_status }}</a>
+                                                    <a href="#" class="tags-item featured">FEATURED</a>
+                                                </div>
+                                                <div class="button-heart"><i class="flaticon-heart-1"></i></div>
+                                                <div class="swiper-container slider-box-dream arrow-style-1 pagination-style-1">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="">
+                                                                <img class="" src="{{ item.image_one.url }}" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="">
+                                                                <img class="" src="{{ item.image_two.url }}" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="">
+                                                                <img class="" src="{{ item.image_three.url }}" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="">
+                                                                <img class="" src="{{ item.image_four.url }}" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-pagination box-dream-pagination"></div>
+                                                    <div class="box-dream-next swiper-button-next"></div>
+                                                    <div class="box-dream-prev swiper-button-prev"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="content">
+                                                <div class="head">
+                                                    <div class="title">
+                                                        <a href="{% url 'main:property_detail' item.id %}">{{ item.title }}</a>
+                                                    </div>
+                                                    <div class="price">{{ item.price }}</div>
+                                                </div>
+                                                <div class="location">
+                                                    <div class="icon">
+                                                        <i class="flaticon-location"></i>
+                                                    </div>
+                                                    <p>{{ item.address }}, {{ item.city }}, {{ item.area }}</p>
+                                                </div>
+                                                <div class="icon-box">
+                                                    <div class="item">
+                                                        <i class="flaticon-hotel"></i>
+                                                        <p>{{ item.bedroom_number }} Beds</p>
+                                                    </div>
+                                                    <div class="item">
+                                                        <i class="flaticon-bath-tub"></i>
+                                                        <p>{{ item.number }} Baths</p>
+                                                    </div>
+                                                    <div class="item">
+                                                        <i class="flaticon-minus-front"></i>
+                                                        <p>{{ item.property_size }} Sqft</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    {% endfor %}
+                                    
+                                    
+                                    
+                                   
+                                    
+                                    
+                                    
+                                </div>
+                                <ul class="wg-pagination justify-center wow fadeInUp">
+                                    <li>
+                                        <a href="#"><i class="icon-keyboard_arrow_left"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">1</a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">4</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">...</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">20</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-keyboard_arrow_right"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="sidebar">
+                                    <div class="sidebar-item sidebar-categories no-bg">
+                                        <div class="sidebar-title">Property Types</div>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Apartment</a>
+                                            </li>
+                                            <li class="active">
+                                                <a href="#">Office</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Single Family</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shop</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Villa</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="sidebar-item sidebar-exclusive no-bg relative">
+                                        <div class="sidebar-title">Exclusive Property</div>
+                                        <div class="top-wrap arrow-style-2">
+                                            <div class="swiper-button-prev exclusive-prev"></div>
+                                            <div class="swiper-button-next exclusive-next"></div>
+                                        </div>
+                                        <div class="swiper-container slider-exclusive">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <div class="box-dream style-absolute type-no-bg-content style-properties-1 item-1">
+                                                        <div class="image">
+                                                            <div class="list-tags">
+                                                                <a href="#" class="tags-item for-sell">FOR RENT</a>
+                                                                <a href="#" class="tags-item featured">FEATURED</a>
+                                                            </div>
+                                                            <img class="w-full" src="{% static 'assets/images/sidebar/img-1.jpg' %}" alt="">
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="price">$815,000</div>
+                                                            <div class="head">
+                                                                <div class="title">
+                                                                    <a href="property-single-v1.html">Archer House</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="location">
+                                                                <div class="icon">
+                                                                    <i class="flaticon-location"></i>
+                                                                </div>
+                                                                <p>148-37 88th Ave, Jamaica, NY 11435</p>
+                                                            </div>
+                                                            <div class="icon-box">
+                                                                <div class="item">
+                                                                    <i class="flaticon-hotel"></i>
+                                                                    <p>4</p>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <i class="flaticon-bath-tub"></i>
+                                                                    <p>3</p>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <i class="flaticon-minus-front"></i>
+                                                                    <p>2660</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="box-dream style-absolute type-no-bg-content style-properties-1 item-1">
+                                                        <div class="image">
+                                                            <div class="list-tags">
+                                                                <a href="#" class="tags-item for-sell">FOR RENT</a>
+                                                                <a href="#" class="tags-item featured">FEATURED</a>
+                                                            </div>
+                                                            <img class="w-full" src="{% static 'assets/images/sidebar/img-1.jpg' %}" alt="">
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="price">$815,000</div>
+                                                            <div class="head">
+                                                                <div class="title">
+                                                                    <a href="property-single-v1.html">Archer House</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="location">
+                                                                <div class="icon">
+                                                                    <i class="flaticon-location"></i>
+                                                                </div>
+                                                                <p>148-37 88th Ave, Jamaica, NY 11435</p>
+                                                            </div>
+                                                            <div class="icon-box">
+                                                                <div class="item">
+                                                                    <i class="flaticon-hotel"></i>
+                                                                    <p>4</p>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <i class="flaticon-bath-tub"></i>
+                                                                    <p>3</p>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <i class="flaticon-minus-front"></i>
+                                                                    <p>2660</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="box-dream style-absolute type-no-bg-content style-properties-1 item-1">
+                                                        <div class="image">
+                                                            <div class="list-tags">
+                                                                <a href="#" class="tags-item for-sell">FOR RENT</a>
+                                                                <a href="#" class="tags-item featured">FEATURED</a>
+                                                            </div>
+                                                            <img class="w-full" src="{% static 'assets/images/sidebar/img-1.jpg' %}" alt="">
+                                                        </div>
+                                                        <div class="content">
+                                                            <div class="price">$815,000</div>
+                                                            <div class="head">
+                                                                <div class="title">
+                                                                    <a href="property-single-v1.html">Archer House</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="location">
+                                                                <div class="icon">
+                                                                    <i class="flaticon-location"></i>
+                                                                </div>
+                                                                <p>148-37 88th Ave, Jamaica, NY 11435</p>
+                                                            </div>
+                                                            <div class="icon-box">
+                                                                <div class="item">
+                                                                    <i class="flaticon-hotel"></i>
+                                                                    <p>4</p>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <i class="flaticon-bath-tub"></i>
+                                                                    <p>3</p>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <i class="flaticon-minus-front"></i>
+                                                                    <p>2660</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div class="sidebar-item sidebar-agents-1 no-bg">
+                                        <div class="sidebar-title">Agents</div>
+                                        <ul>
+                                            <li>
+                                                <div class="image">
+                                                    <img src="{% static 'assets/images/sidebar/agent-1.png' %}" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <div class="name">
+                                                        <a href="#">Jane Cooper</a>
+                                                    </div>
+                                                    <p>sale@justhome.com</p>
+                                                    <p>3-596 95 38 12</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="image">
+                                                    <img src="{% static 'assets/images/sidebar/agent-2.png' %}" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <div class="name">
+                                                        <a href="#">Marvin McKinney</a>
+                                                    </div>
+                                                    <p>sale@justhome.com</p>
+                                                    <p>3-596 95 38 12</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="image">
+                                                    <img src="{% static 'assets/images/sidebar/agent-3.png' %}" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <div class="name">
+                                                        <a href="#">Cameron Williamson</a>
+                                                    </div>
+                                                    <p>sale@justhome.com</p>
+                                                    <p>3-596 95 38 12</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /property-grid -->
+
+            </div>
+            <!-- /main-content -->
+
+            {% endblock %}
