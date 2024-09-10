@@ -1209,11 +1209,23 @@
                                 
                                 <div class="property-single-sidebar">
                                     <div class="sidebar-item sidebar-request">
-                                        <div class="text">
+                                        <form class="form-login" method="POST" action="{% url 'main:property_detail' property_id=prop.id %}">
+                                            {% csrf_token %}
+
+                                            <input type="hidden" name="reserve_property" value="true">
+
+                                        <div class="text mb-20">
                                            Reserve Property
+                                           <p>Reserved status: {{ reserved }}</p>
+
                                             
                                         </div>
-                                        <a href="#" class="tf-button-primary w-full">Reserve Property<i class="icon-arrow-right-add"></i></a>
+                                        <button type="submit" class="tf-button-primary w-full">{% if reserved %}
+                                Reserved
+                            {% else %}
+                                Reserve Property
+                            {% endif %}<i class="icon-arrow-right-add"></i></button>
+                                        </form>
                                         
                                     </div>
                                     
@@ -1505,7 +1517,7 @@
                     
                     <div class="button-submit">
                         <button class="tf-button-primary w-full" type="submit">
-                            {% if bookmark %}
+                            {% if bookmarked %}
                                 Remove from Bookmark
                             {% else %}
                                 Bookmark

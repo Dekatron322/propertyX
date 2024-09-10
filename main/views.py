@@ -15,7 +15,7 @@ import datetime as dt
 import requests
 
 from .forms import UserForm
-from .models import AppUser, Property, ScheduleTour, PropertyLike, PropertyBookmark
+from .models import AppUser, Property, ScheduleTour, PropertyLike, PropertyBookmark, ReserveProperty
 
 
 import random
@@ -151,18 +151,17 @@ def PropertyDetailView(request, property_id):
 
     prop = get_object_or_404(Property, id=property_id)
     
-    # Check if the property is already liked by the user
-    liked = False
+    # Check if the property is already liked, bookmarked, or reserved by the user
+    liked = bookmarked = reserved = False
     if app_user:
         liked = PropertyLike.objects.filter(user=app_user, prop=prop).exists()
-
-        # Check if the property is already bookmarked by the user
         bookmarked = PropertyBookmark.objects.filter(user=app_user, prop=prop).exists()
+        reserved = ReserveProperty.objects.filter(user=app_user, prop=prop).exists()
 
     if request.method == "POST":
-        # Handling Tour Scheduling
         if 'schedule_tour' in request.POST:
             if app_user:
+                # Handle tour scheduling
                 tour_date = request.POST.get("tour_date")
                 tour_time = request.POST.get("tour_time")
                 tour_type = request.POST.get("tour_type", "In Person")
@@ -183,15 +182,12 @@ def PropertyDetailView(request, property_id):
                 messages.error(request, "User not authenticated.")
                 return redirect('main:sign_in')
 
-        # Handling Property Like
         elif 'like_property' in request.POST:
             if app_user:
                 if liked:
-                    # If the property is already liked, unlike it
                     PropertyLike.objects.filter(user=app_user, prop=prop).delete()
                     messages.success(request, "You have unliked this property.")
                 else:
-                    # Like the property
                     PropertyLike.objects.create(user=app_user, prop=prop)
                     messages.success(request, "You have liked this property.")
                 return redirect('main:property_detail', property_id=property_id)
@@ -199,15 +195,12 @@ def PropertyDetailView(request, property_id):
                 messages.error(request, "User not authenticated.")
                 return redirect('main:sign_in')
 
-        # Handling Property Bookmark
         elif 'bookmark_property' in request.POST:
             if app_user:
                 if bookmarked:
-                    # If the property is already bookmarked, remove the bookmark
                     PropertyBookmark.objects.filter(user=app_user, prop=prop).delete()
                     messages.success(request, "You have removed the bookmark from this property.")
                 else:
-                    # Bookmark the property
                     PropertyBookmark.objects.create(user=app_user, prop=prop)
                     messages.success(request, "You have bookmarked this property.")
                 return redirect('main:property_detail', property_id=property_id)
@@ -215,7 +208,19 @@ def PropertyDetailView(request, property_id):
                 messages.error(request, "User not authenticated.")
                 return redirect('main:sign_in')
 
-    # Fetching all properties
+        elif 'reserve_property' in request.POST:
+            if app_user:
+                if reserved:
+                    ReserveProperty.objects.filter(user=app_user, prop=prop).delete()
+                    messages.success(request, "You have removed the reservation.")
+                else:
+                    ReserveProperty.objects.create(user=app_user, prop=prop)
+                    messages.success(request, "You have reserved this property.")
+                return redirect('main:reserve_property', property_id=property_id)
+            else:
+                messages.error(request, "User not authenticated.")
+                return redirect('main:sign_in')
+
     properties = Property.objects.all()
 
     context = {
@@ -223,10 +228,22 @@ def PropertyDetailView(request, property_id):
         "prop": prop,
         "properties": properties,
         "liked": liked,
+        "reserved": reserved,
         "bookmarked": bookmarked
     }
     
     return render(request, "main/property_detail.html", context)
+
+def ReservePropertyView(request, property_id):
+    prop = get_object_or_404(Property, id=property_id)
+    
+    # Add logic here to handle the reservation confirmation or details.
+    
+    context = {
+        "prop": prop,
+    }
+    
+    return render(request, "main/reserve_property.html", context)
 
 def ForgotPasswordView(request):
     
@@ -317,7 +334,50 @@ def SignInView(request):
     else:
         context = {}
         return render(request, "main/sign_in.html", context)
-        return render(request, "main/sign_in.html", context )
+        
+
+
+def DashboardView(request):
+    app_user = AppUser.objects.get(user__pk=request.user.id)
+    
+    # Count the number of liked, reserved, and bookmarked properties
+    liked_count = PropertyLike.objects.filter(user=app_user).count()
+    reserved_count = ReserveProperty.objects.filter(user=app_user).count()
+    bookmarked_count = PropertyBookmark.objects.filter(user=app_user).count()
+
+    context = {
+        "app_user": app_user,
+        "prop": Property.objects.all(),
+        "liked_count": liked_count,
+        "reserved_count": reserved_count,
+        "bookmarked_count": bookmarked_count,
+    }
+    
+    return render(request, "main/dashboard.html", context)
+
+
+def LikedView(request):
+    app_user = AppUser.objects.get(user__pk=request.user.id)
+    
+    # Get all properties liked by the user
+    liked_properties = Property.objects.filter(propertylike__user=app_user)
+
+    context = {
+        "app_user": app_user,
+        "liked_properties": liked_properties,
+    }
+    
+    return render(request, "main/liked.html", context)
+
+def UnlikePropertyView(request, property_id):
+    app_user = AppUser.objects.get(user__pk=request.user.id)
+    prop = get_object_or_404(Property, id=property_id)
+
+    # Remove the liked property
+    PropertyLike.objects.filter(user=app_user, prop=prop).delete()
+
+    messages.success(request, "You have unliked this property.")
+    return redirect('main:liked_view')
 
 
 def SignOutView(request):

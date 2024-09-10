@@ -1,0 +1,174 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+{% block content %}
+
+            <!-- main-content -->
+            <div class="main-content spacing-20">
+
+                <div class="layout-wrap-inner">
+
+                    <!-- section-menu-left -->
+                    <div class="section-menu-left">
+                        <div class="menu-content">
+                            <ul>
+                                <li class="active">
+                                    <a href="dashboard.html"><i class="flaticon-hotel"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-my-profile.html"><i class="flaticon-user"></i>My Profile</a>
+                                </li>
+                                <!-- <li>
+                                    <a href="dashboard-reviews.html"><i class="flaticon-comment"></i>Reviews</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-message.html"><i class="flaticon-chat-bubble"></i>Message</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-add-properties.html"><i class="flaticon-plus"></i>Add New Properties</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-my-properties.html"><i class="flaticon-home-2"></i>My Properties</a>
+                                </li> -->
+                                <li>
+                                    <a href="dashboard-my-favorites.html"><i class="flaticon-home-3"></i>My Favorites</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-saved-search.html"><i class="flaticon-find"></i>Saved Search</a>
+                                </li>
+                                <!-- <li>
+                                    <a href="dashboard-my-package.html"><i class="flaticon-layers-1"></i>My Package</a>
+                                </li> -->
+                                <li>
+                                    <a href="index.html"><i class="flaticon-logout"></i>Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /section-menu-left -->
+                    
+                    <!-- section-content-right -->
+                    <div class="section-content-right">
+                        {% if app_user %}
+                        <h3>{{ app_user.user.first_name }} {{ app_user.user.last_name }}</h3>
+                        {% endif %}
+                        <div class="text-content">We are glad to see you again!</div>
+
+                        <div class="grid-section-4 mb-20">
+                            <div class="wg-box">
+                                <div class="box-icon style-1 type-row">
+                                    <div class="content">
+                                        <a href="#" class="title">{{ bookmarked_count }}</a> 
+                                        <div class="text-content">Bookmarked</div>
+                                    </div>
+                                    <div class="icon has-ellipse">
+                                        <i class="flaticon-outbox"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wg-box">
+                                <div class="box-icon style-1 type-row">
+                                    <div class="content">
+                                        <a href="#" class="title">24</a> 
+                                        <div class="text-content">Pending</div>
+                                    </div>
+                                    <div class="icon has-ellipse">
+                                        <i class="flaticon-file"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wg-box">
+                                <div class="box-icon style-1 type-row">
+                                    <div class="content">
+                                        <a href="#" class="title">{{ liked_count }}</a> 
+                                        <div class="text-content">Favorites</div>
+                                    </div>
+                                    <div class="icon has-ellipse">
+                                        <i class="flaticon-home-3"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wg-box">
+                                <div class="box-icon style-1 type-row">
+                                    <div class="content">
+                                        <a href="#" class="title">{{ reserved_count }}</a> 
+                                        <div class="text-content">Reserved</div>
+                                    </div>
+                                    <div class="icon has-ellipse">
+                                        <i class="flaticon-comment"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-section-1">
+                            <div class="wg-box pl-44">
+                                <h4>View Statistics</h4>
+                                <div class="area-chart">
+                                    <div id="line-chart-5"></div>
+                                </div>
+                            </div>
+                            <div class="wg-box">
+                                <h4>Recent Activities</h4>
+                                <ul class="wrap-recent-activities">
+                                    <li class="recent-activities-item">
+                                        <div class="image"></div>
+                                        <p>Your listing <span>Modern House in Greenville</span> has been approved!.</p>
+                                    </li>
+                                    <li class="recent-activities-item">
+                                        <div class="image"></div>
+                                        <p>Kathy Brown left a review on <span>Renovated Apartment</span></p>
+                                    </li>
+                                    <li class="recent-activities-item">
+                                        <div class="image"></div>
+                                        <p>Someone favorites your <span>Gorgeous Villa Bay</span> View listing!</p>
+                                    </li>
+                                    <li class="recent-activities-item">
+                                        <div class="image"></div>
+                                        <p>Your listing <span>Luxury Family Home</span> has been approved!</p>
+                                    </li>
+                                    <li class="recent-activities-item">
+                                        <div class="image"></div>
+                                        <p>Kathy Brown left a review on <span>Renovated Apartment</span></p>
+                                    </li>
+                                    <li class="recent-activities-item">
+                                        <div class="image"></div>
+                                        <p>Kathy Brown left a review on <span>Renovated Apartment</span></p>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="tf-button-primary w-full style-bg-white">View More<i class="icon-arrow-right-add"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bottom-page">
+                            <p>Copyright © 2024. JustHome</p>
+                        </div>
+                    </div>
+                    <!-- /section-content-right -->
+
+                    <!-- btn-canvas -->
+                    <div class="btn-canvas active">
+                        <span></span>
+                        <div class="text-content"> Dashboard Navigation</div>
+                    </div>
+                    <!-- /btn-canvas -->
+
+                </div>
+              
+            </div>
+            <!-- /main-content -->
+
+        </div>
+        <!-- /#page -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- go top button -->
+    <div class="progress-wrap active-progress">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+        </svg>
+    </div>
+    <!-- /go top button -->
+
+   {% endblock %}

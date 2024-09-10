@@ -8,11 +8,13 @@ urlpatterns = [
 	path("", views.IndexView, name="index"),
 	path("complete/", views.CompleteSignUpView, name="complete_sign_up"),
 	path("app/", views.AppView, name="app"),
+	path("dashboard/", views.DashboardView, name="dashboard"),
+	path("liked/", views.LikedView, name="liked"),
 	path("sign-in/", views.SignInView, name="sign_in"),
 	path("sign-out/", views.SignOutView, name="sign_out"),
 	path("forgot-password/", views.ForgotPasswordView, name="forgot_password"),
 	path("set-new-password/", views.SetNewPView, name="set_new_p"),
 	path("property-detail/<int:property_id>/", views.PropertyDetailView, name="property_detail"),
-	# path("about", views.AboutView, name="about"),
-
+	path("reserve-property/<int:property_id>/", views.ReservePropertyView, name="reserve_property"),
+	path('unlike/<int:property_id>/', views.UnlikePropertyView, name='unlike_property'),
 ]

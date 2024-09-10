@@ -1,0 +1,143 @@
+{% extends 'main/base2.html' %}
+{% load static %}
+{% block content %}
+
+            <!-- main-content -->
+            <div class="main-content spacing-20">
+
+                <div class="layout-wrap-inner">
+
+                    <!-- section-menu-left -->
+                    <div class="section-menu-left">
+                        <div class="menu-content">
+                            <ul>
+                                <li>
+                                    <a href="dashboard.html"><i class="flaticon-hotel"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-my-profile.html"><i class="flaticon-user"></i>My Profile</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-reviews.html"><i class="flaticon-comment"></i>Reviews</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-message.html"><i class="flaticon-chat-bubble"></i>Message</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-add-properties.html"><i class="flaticon-plus"></i>Add New Properties</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-my-properties.html"><i class="flaticon-home-2"></i>My Properties</a>
+                                </li>
+                                <li class="active">
+                                    <a href="dashboard-my-favorites.html"><i class="flaticon-home-3"></i>My Favorites</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-saved-search.html"><i class="flaticon-find"></i>Saved Search</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-my-package.html"><i class="flaticon-layers-1"></i>My Package</a>
+                                </li>
+                                <li>
+                                    <a href="index.html"><i class="flaticon-logout"></i>Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /section-menu-left -->
+                    
+                    <!-- section-content-right -->
+                    <div class="section-content-right">
+                        <h3>My Favorities</h3>
+                        <div class="text-content">We are glad to see you again!</div>
+
+                        <div class="wg-box">
+                           
+                           <div class="grid-favorities-item">
+                            {% for item in liked_properties %}
+    <div class="box-dream style-row style-favorities item">
+        <ul class="wg-icon">
+            <li class="delete-btns">
+                <!-- Delete Form -->
+                <form action="{% url 'main:unlike_property' item.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" style="background:none; border:none; cursor:pointer;">
+                        <i class="flaticon-delete"></i>
+                    </button>
+                </form>
+            </li>
+        </ul>
+        <div class="image">
+            <div class="list-tags">
+                <a href="#" class="tags-item for-sell">{{ item.property_status }}</a>
+                <a href="#" class="tags-item featured">FEATURED</a>
+            </div>
+            <img class="w-full" src="{{ item.image_twenty_one.url }}" alt="">
+        </div>
+        <div class="content">
+            <div class="head">
+                <div class="price">${{item.price}}</div>
+                <div class="title">
+                    <a href="{% url 'main:property_detail' item.id %}">{{ item.title }}</a>
+                </div>
+            </div>
+            <div class="location">
+                <div class="icon">
+                    <i class="flaticon-location"></i>
+                </div>
+                <p>{{ item.address }}, {{ item.city }}, {{ item.area }}</p>
+            </div>
+            <div class="icon-box">
+                <div class="item">
+                    <i class="flaticon-hotel"></i>
+                    <p>{{ item.bedroom_number }} Beds</p>
+                </div>
+                <div class="item">
+                    <i class="flaticon-bath-tub"></i>
+                    <p>{{ item.bathroom_number }} Baths</p>
+                </div>
+                <div class="item">
+                    <i class="flaticon-minus-front"></i>
+                    <p>{{ item.property_size }} Sqft</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+                           </div> 
+                           
+                        </div>
+                        
+                        <div class="bottom-page">
+                            <p>Copyright © 2024. JustHome</p>
+                        </div>
+                    </div>
+                    <!-- /section-content-right -->
+
+                    <!-- btn-canvas -->
+                    <div class="btn-canvas active">
+                        <span></span>
+                    <div class="text-content"> Dashboard Navigation</div>
+                    </div>
+                    <!-- /btn-canvas -->
+                    
+                </div>
+              
+            </div>
+            <!-- /main-content -->
+
+        </div>
+        <!-- /#page -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- go top button -->
+    <div class="progress-wrap active-progress">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+        </svg>
+    </div>
+    <!-- /go top button -->
+
+{% endblock %}

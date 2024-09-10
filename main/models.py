@@ -113,5 +113,12 @@ class PropertyLike(models.Model):
 class PropertyBookmark(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE)
     prop = models.ForeignKey(Property, on_delete=models.CASCADE)
-    bookmarked_at = models.DateTimeField(default=timezone.now)    
+    bookmarked_at = models.DateTimeField(default=timezone.now)
+
+
+
+class ReserveProperty(models.Model):
+    user = models.ForeignKey(AppUser, on_delete=models.CASCADE)
+    prop = models.ForeignKey(Property, on_delete=models.CASCADE)
+    bookmarked_at = models.DateTimeField(default=timezone.now)        
         
