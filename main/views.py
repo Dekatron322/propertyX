@@ -15,7 +15,7 @@ import datetime as dt
 import requests
 
 from .forms import UserForm
-from .models import AppUser, Property, ScheduleTour, PropertyLike, PropertyBookmark, ReserveProperty
+from .models import AppUser, Property, ScheduleTour, PropertyLike, PropertyBookmark, ReserveProperty, ReserveProperty
 
 
 import random
@@ -59,9 +59,11 @@ def IndexView(request):
                     return HttpResponseRedirect(reverse("main:complete_sign_up"))
 
     else:
+        app_user = AppUser.objects.get(user__pk=request.user.id)
+        properties = Property.objects.all()
         form = UserForm()
-        context = {"form": form}
-        return render(request, "main/index.html", context)
+        context = {"form": form, "app_user": app_user, "properties": properties,}
+        # return render(request, "main/index.html", context)
     
     return render(request, "main/index.html", context)
 
@@ -369,15 +371,32 @@ def LikedView(request):
     
     return render(request, "main/liked.html", context)
 
-def UnlikePropertyView(request, property_id):
+
+def BookmarkedView(request):
     app_user = AppUser.objects.get(user__pk=request.user.id)
-    prop = get_object_or_404(Property, id=property_id)
+    
+    # Get all properties bookmarked by the user
+    bookmarked_properties = Property.objects.filter(propertybookmark__user=app_user)
 
-    # Remove the liked property
-    PropertyLike.objects.filter(user=app_user, prop=prop).delete()
+    context = {
+        "app_user": app_user,
+        "bookmarked_properties": bookmarked_properties,
+    }
+    
+    return render(request, "main/bookmarked.html", context)
 
-    messages.success(request, "You have unliked this property.")
-    return redirect('main:liked_view')
+def ReservedView(request):
+    app_user = AppUser.objects.get(user__pk=request.user.id)
+    
+    # Get all properties reserved by the user
+    reserved_properties = ReserveProperty.objects.filter(user=app_user).select_related('prop')
+
+    context = {
+        "app_user": app_user,
+        "reserved_properties": reserved_properties,
+    }
+    
+    return render(request, "main/reserve.html", context)
 
 
 def SignOutView(request):

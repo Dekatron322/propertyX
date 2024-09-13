@@ -1,0 +1,41 @@
+{% load static %}
+
+<!-- section-menu-left -->
+                    <div class="section-menu-left">
+                        <div class="menu-content">
+                            <ul>
+                                <li class="active">
+                                    <a href="{% url 'main:dashboard' %}"><i class="flaticon-hotel"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-my-profile.html"><i class="flaticon-user"></i>My Profile</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'main:reserved' %}"><i class="flaticon-comment"></i>Reserved</a>
+                                </li>
+                                <!--<li>
+                                    <a href="dashboard-message.html"><i class="flaticon-chat-bubble"></i>Message</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-add-properties.html"><i class="flaticon-plus"></i>Add New Properties</a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-my-properties.html"><i class="flaticon-home-2"></i>My Properties</a>
+                                </li> -->
+                                <li>
+                                    <a href="{% url 'main:liked' %}"><i class="flaticon-home-3"></i>My Favorites</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'main:bookmarked' %}"><i class="flaticon-find"></i>Saved Search</a>
+                                </li>
+                                <!-- <li>
+                                    <a href="dashboard-my-package.html"><i class="flaticon-layers-1"></i>My Package</a>
+                                </li> -->
+                                <li>
+                                    <a href="index.html"><i class="flaticon-logout"></i>Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /section-menu-left -->
+                    

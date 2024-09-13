@@ -16,5 +16,7 @@ urlpatterns = [
 	path("set-new-password/", views.SetNewPView, name="set_new_p"),
 	path("property-detail/<int:property_id>/", views.PropertyDetailView, name="property_detail"),
 	path("reserve-property/<int:property_id>/", views.ReservePropertyView, name="reserve_property"),
-	path('unlike/<int:property_id>/', views.UnlikePropertyView, name='unlike_property'),
+	path('bookmarked/', views.BookmarkedView, name='bookmarked'),
+    path('reserved/', views.ReservedView, name='reserved'),
+    
 ]
