@@ -29,6 +29,14 @@ def ray_randomiser(length=6):
 
 
 def IndexView(request):
+    app_user = None  # Default to None if the user is not logged in
+
+    if request.user.is_authenticated:
+        try:
+            app_user = AppUser.objects.get(user=request.user)
+        except AppUser.DoesNotExist:
+            pass  # app_user will remain None if it does not exist
+
     if request.method == "POST":
         form = UserForm(request.POST or None, request.FILES or None)
         email = request.POST.get("username")
@@ -59,11 +67,14 @@ def IndexView(request):
                     return HttpResponseRedirect(reverse("main:complete_sign_up"))
 
     else:
-        app_user = AppUser.objects.get(user__pk=request.user.id)
         properties = Property.objects.all()
         form = UserForm()
-        context = {"form": form, "app_user": app_user, "properties": properties,}
-        # return render(request, "main/index.html", context)
+
+    context = {
+        "form": form,
+        "properties": properties,
+        "app_user": app_user  # Pass app_user to the context
+    }
     
     return render(request, "main/index.html", context)
 
