@@ -78,6 +78,53 @@ def IndexView(request):
     
     return render(request, "main/index.html", context)
 
+def SignUpView(request):
+    # app_user = None  # Default to None if the user is not logged in
+
+    # if request.user.is_authenticated:
+    #     try:
+    #         app_user = AppUser.objects.get(user=request.user)
+    #     except AppUser.DoesNotExist:
+    #         pass  # app_user will remain None if it does not exist
+
+    if request.method == "POST":
+        form = UserForm(request.POST or None, request.FILES or None)
+        email = request.POST.get("username")
+
+        if request.POST.get("password2") != request.POST.get("password1"):
+            messages.warning(request, "Make sure both passwords match")
+            return HttpResponseRedirect(reverse("main:sign_up"))
+        else:
+            try:
+                AppUser.objects.get(user__email=email)
+                messages.warning(request, "Email Address already taken, try another one!")
+                return HttpResponseRedirect(reverse("main:sign_up"))
+            except AppUser.DoesNotExist:
+                user = form.save(commit=False)
+                user.set_password(request.POST.get("password1"))
+                user.save()
+
+                app_user = AppUser.objects.create(user=user)
+                app_user.otp_code = ray_randomiser()
+                app_user.save()
+
+                user.email = email
+                user.save()
+
+                if user.is_active:
+                    login(request, user)
+                    messages.warning(request, "Authenticate your account, your OTP code has been sent to your email.")
+                    return HttpResponseRedirect(reverse("main:complete_sign_up"))
+
+    else:
+        properties = Property.objects.all()
+        form = UserForm()
+
+    context = {
+        "form": form,
+    }
+    
+    return render(request, "main/sign_up.html", context)
 
 
 def CompleteSignUpView(request):
@@ -425,3 +472,13 @@ def ContactView(request):
     else:
         context = {}
         return render(request, "main/contact.html", context )
+
+
+def ComingView(request):
+    if request.method == "POST":
+        pass
+
+
+    else:
+        context = {}
+        return render(request, "main/coming.html", context )

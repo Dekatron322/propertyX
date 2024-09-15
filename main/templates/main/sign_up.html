@@ -2,7 +2,8 @@
 {% load static %}
 {% block content %}
 
-     <!-- main-content -->
+
+    <!-- main-content -->
     <div class="main-content spacing-20" style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
 
         
@@ -12,18 +13,17 @@
 
             <!-- section-content-right -->
             <div class="section-content col-12" style="text-align: center; max-width: 600px;">">
-                <h3>Set New Password</h3>
-                
+                <h3>Create Account</h3>
+                <div class="text-content mb-20">Enter Credentials to sign up!</div>
                  {% if messages %}
             {% for message in messages %}
-            <div class="message-boxes-item type-success mb-20">
+            <div class="message-boxes-item type-error mb-20">
                                             <div class="text">{{ message }}</div>
                                             <i class="icon-close"></i>
                                         </div>  
                 
             {% endfor %}
         {% endif %}
-                
 
                 <div class="wg-box pl-44 mb-20">
                     
@@ -32,19 +32,29 @@
                             {% csrf_token %}
                             <div class="cols">
                                 <fieldset class="email has-top-title">
-                                    <input type="text" placeholder="Enter Otp" class="" name="otp" tabindex="2" value="123456" aria-required="true" required="">
-                                    <label for="">Otp Code</label>
+                                    <input type="text" placeholder="e.g John" class="" name="first_name" tabindex="2"  aria-required="true" required="">
+                                    <label for="">First Name</label>
+                                </fieldset>
+                                <fieldset class="email has-top-title">
+                                    <input type="text" placeholder="e.g Doe" class="" name="last_name" tabindex="2"  aria-required="true" required="">
+                                    <label for="">Last Name</label>
                                 </fieldset>
                             </div>
                             <div class="cols">
                                 <fieldset class="email has-top-title">
-                                    <input type="password" placeholder="Password" class="" name="password1"  aria-required="true" required="">
+                                    <input type="email" placeholder="e.g john@gmail.com" class="" name="username" tabindex="2"  aria-required="true" required="">
+                                    <label for="">Email</label>
+                                </fieldset>
+                            </div>
+                            <div class="cols">
+                                <fieldset class="email has-top-title">
+                                    <input type="password" placeholder="Password" class="" name="password1" tabindex="2"  aria-required="true" required="">
                                     <label for="">Password</label>
                                 </fieldset>
                             </div>
                             <div class="cols">
                                 <fieldset class="email has-top-title">
-                                    <input type="password" placeholder="Confirm Password" class="" name="password2" tabindex="2" " aria-required="true" required="">
+                                    <input type="password" placeholder="Password" class="" name="password2" tabindex="2"  aria-required="true" required="">
                                     <label for="">Confirm Password</label>
                                 </fieldset>
                             </div>
@@ -58,7 +68,7 @@
                 </div>
 
                 <div class="bottom-page">
-                    <p>Don't have an account <a href="#">Register</a></p>
+                    <p>already have an account <a href="{% url 'main:sign_up' %}" >Sign In</a></p>
                 </div>
             </div>
             <!-- /section-content-right -->

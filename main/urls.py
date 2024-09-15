@@ -10,6 +10,7 @@ urlpatterns = [
 	path("app/", views.AppView, name="app"),
 	path("dashboard/", views.DashboardView, name="dashboard"),
 	path("liked/", views.LikedView, name="liked"),
+	path("sign-up/", views.SignUpView, name="sign_up"),
 	path("sign-in/", views.SignInView, name="sign_in"),
 	path("sign-out/", views.SignOutView, name="sign_out"),
 	path("forgot-password/", views.ForgotPasswordView, name="forgot_password"),
@@ -19,4 +20,5 @@ urlpatterns = [
 	path('bookmarked/', views.BookmarkedView, name='bookmarked'),
     path('reserved/', views.ReservedView, name='reserved'),
     path('contact/', views.ContactView, name='contact'),
+    path('coming-soon/', views.ComingView, name='coming_soon'),
 ]

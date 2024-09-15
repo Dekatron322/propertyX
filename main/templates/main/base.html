@@ -72,7 +72,7 @@
                                 <li class="has-children current"><a href="/">Home</a>
                                     
                                 </li>
-                                <li class="has-children"><a href="">Property</a>
+                                <li class="has-children"><a href="{% url 'main:app' %}">Property</a>
                                     
                                 </li>
                                 <li class="has-children"><a href="javascript:void(0);">Realtor</a>
@@ -124,10 +124,10 @@
                                 <div class="number">800-555-6789</div>
                             </div>
                             {% if app_user %}
-                            <div data-bs-toggle="modal" data-bs-target="#modallogin" class="header-user-login">
-                                <div class="image">
+                            <div class="header-user-login">
+                                <a href="{% url 'main:dashboard' %}" class="image">
                                     <img src="{% static 'assets/images/author/author-6.png' %}" alt="">
-                                </div>
+                                </a>
                                 <div class="name">{{ app_user.user.first_name }} {{ app_user.user.last_name }}</div>
                             </div>
                             {% else %}
@@ -138,7 +138,7 @@
                             </div>
                             {% endif %}
                             <div class="header-btn">
-                                <a href="dashboard-add-properties.html" class="tf-button-default">Add Listing</a>
+                                <a href="{% url 'main:coming_soon' %}" class="tf-button-default">Add Listing</a>
                             </div>
                         </div>
                         <a class="mobile-nav-toggler mobile-button" href="#menu"></a>
@@ -150,15 +150,15 @@
                     </a>
                     <ul>
                         <li class="current">
-                            <span>Home</span>
+                            <a href="/">Home</a>
                             
                         </li>
                         <li>
-                            <span>Property</span>
+                            <a href="{% url 'main:app' %}">Property</a>
                             
                         </li>
                         <li>
-                            <span>Realtor</span>
+                            <a href="javascript:void(0);">Realtor</a>
                            
                         </li>
                         
@@ -176,13 +176,13 @@
 
 
 <!-- footer -->
-            <footer class="footer style-full style-fourth">
+            <footer class="footer">
                 <div class="footer-inner">
                     <div class="footer-inner-wrap">
                         <div class="top-footer">
                             <div class="logo-footer">
                                 <a href="index.html">
-                                    <img id="logo-footer" src="{% static 'assets/images/logo/logo-footer.svg' %}" alt="images" >
+                                    <img width="15%" src="{% static 'assets/images/logo/logox.png' %}" alt="images" >
                                 </a>
                             </div>
                             <div class="wg-social">
