@@ -414,3 +414,14 @@ def SignOutView(request):
 
     logout(request)
     return HttpResponseRedirect(reverse("main:sign_in"))
+
+
+
+def ContactView(request):
+    if request.method == "POST":
+        pass
+
+
+    else:
+        context = {}
+        return render(request, "main/contact.html", context )

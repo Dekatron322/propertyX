@@ -81,7 +81,7 @@
                                 
                                 
                                 <li>
-                                    <a href="contact.html">Contact</a>
+                                    <a href="{% url 'main:contact' %}">Contact</a>
                                 </li>
                             </ul>
                         </nav>
@@ -318,6 +318,7 @@
 
 
 <!-- Javascript -->
+
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
     <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>

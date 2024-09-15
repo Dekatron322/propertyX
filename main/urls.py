@@ -18,5 +18,5 @@ urlpatterns = [
 	path("reserve-property/<int:property_id>/", views.ReservePropertyView, name="reserve_property"),
 	path('bookmarked/', views.BookmarkedView, name='bookmarked'),
     path('reserved/', views.ReservedView, name='reserved'),
-    
+    path('contact/', views.ContactView, name='contact'),
 ]

@@ -63,8 +63,8 @@
                 <div class="header-inner"> 
                     <div class="header-inner-wrap">
                         <div id="site-logo">
-                            <a href="index.html" rel="home">
-                                <img class="d-block" id="logo-header" src="{% static 'assets/images/logo/logo.svg' %}"  alt="">
+                            <a href="/" rel="home">
+                                <img class="d-block" id="logo-header" src="{% static 'assets/images/logo/logox.svg' %}"  alt="">
                             </a>
                         </div>
                         <nav class="main-menu">
@@ -112,7 +112,7 @@
                                     </ul>
                                 </li>
  -->                                <li>
-                                    <a href="contact.html">Contact</a>
+                                    <a href="{% url 'main:contact' %}">Contact</a>
                                 </li>
                             </ul>
                         </nav>
@@ -164,7 +164,7 @@
                         
                        
                         
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{% url 'main:contact' %}">Contact</a></li>
                     </ul>
                 </nav>
             </header>
@@ -239,7 +239,7 @@
                                 <div class="ft-title">Quick Links</div>
                                 <ul class="navigation-menu-footer">
                                     <li><a href="about.html">About</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="{% url 'main:contact' %}">Contact</a></li>
                                     <li><a href="faq.html">Faq</a></li>
                                     <li><a href="blog-list-v1.html">Blog</a></li>
                                     <li><a href="pricing.html">Pricing Plans</a></li>
@@ -288,7 +288,7 @@
                             </div>
                         </div>
                         <div class="bottom-footer">
-                            <div class="text">Copyright © 2024. JustHome</div>
+                            <div class="text">Copyright © 2024. Property Concierge</div>
                         </div>
                     </div>
                 </div>
@@ -373,6 +373,7 @@
     
 
     <!-- Javascript -->
+    
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
     <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
@@ -382,6 +383,7 @@
     <script src="{% static 'assets/js/countto.js' %}"></script>
     <script src="{% static 'assets/js/circletype.min.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFC3m2n0jBRFTMvUNZc0-6Y0Rzlcadzcw"></script>
+    <script src="{% static 'assets/js/maps-1.js' %}"></script>
     <script src="{% static 'assets/js/maps.js' %}"></script>
     <script src="{% static 'assets/js/marker.js' %}"></script>
     <script src="{% static 'assets/js/infobox.min.js' %}"></script>
