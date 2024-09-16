@@ -212,38 +212,40 @@
                                         
                                         <form class="form-comment">
                                             <div class="flex gap30 mb-30 flex-column">
+                                                
+                                                {% for items in solicitors %}
                                     <div class="agents-item wow fadeInUp">
                                         <div class="flex gap40">
                                             <div class="image">
-                                                <img src="{% static 'assets/images/author/author-4.png' %}" alt="">
+                                                <img src="{{ items.profile.url }}" alt="">
                                             </div>
                                             <div>
                                                 <div class="infor">
                                                     <div class="name">
-                                                        <a href="agent-single.html">Samuel Palmer</a>
+                                                        <a href="agent-single.html">{{ items.name }}</a>
                                                     </div>
-                                                    <p>Company Agent at <span>The James Estate Agents</span></p>
+                                                    <p>{{ items.position }} at <span>{{ items.firm_name }}</span></p>
                                                 </div>
                                                 <div class="flex gap30 flex-wrap wrap-contact">
                                                     <a href="tel:+68 685 93 283" class="tf-button-icon-before style-1">
                                                         <i class="flaticon-phone"></i>
                                                         <div>
                                                             <div class="title">Office</div>
-                                                            <span>1-222-333-4444</span>
+                                                            <span>{{ items.phone_number }}</span>
                                                         </div>
                                                     </a>
                                                     <a href="tel:+68 685 93 283" class="tf-button-icon-before style-1">
                                                         <i class="flaticon-phone"></i>
                                                         <div>
                                                             <div class="title">Mobile</div>
-                                                            <span>1-222-333-4444</span>
+                                                            <span>{{ items.mobile_number }}</span>
                                                         </div>
                                                     </a>
                                                     <a href="#" class="tf-button-icon-before style-1">
                                                         <i class="flaticon-phone"></i>
                                                         <div>
                                                             <div class="title">Email</div>
-                                                            <span>info@propertyx.com</span>
+                                                            <span>{{ items.email }}</span>
                                                         </div>
                                                     </a>
                                                 </div>
@@ -253,7 +255,7 @@
                                             <div class="wg-social style-black">
                                                 <ul class="list-social">
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="{{ items.facebook }}">
                                                             <i class="icon-facebook"></i>
                                                         </a>
                                                     </li>
@@ -263,12 +265,12 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="{{ items.instagram }}">
                                                             <i class="icon-instagram"></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#">
+                                                        <a href="{{ items.likedin }}">
                                                             <i class="icon-linkedin2"></i>
                                                         </a>
                                                     </li>
@@ -285,79 +287,8 @@
                                                     </ul>
                                         </div>
                                     </div>
-                                    <div class="agents-item wow fadeInUp">
-                                        <div class="flex gap40">
-                                            <div class="image">
-                                                <img src="{% static 'assets/images/author/author-12.png' %}" alt="">
-                                            </div>
-                                            <div>
-                                                <div class="infor">
-                                                    <div class="name">
-                                                        <a href="agent-single.html">Samuel Palmer</a>
-                                                    </div>
-                                                    <p>Company Agent at <span>The James Estate Agents</span></p>
-                                                </div>
-                                                <div class="flex gap30 flex-wrap wrap-contact">
-                                                    <a href="tel:+68 685 93 283" class="tf-button-icon-before style-1">
-                                                        <i class="flaticon-phone"></i>
-                                                        <div>
-                                                            <div class="title">Office</div>
-                                                            <span>1-222-333-4444</span>
-                                                        </div>
-                                                    </a>
-                                                    <a href="tel:+68 685 93 283" class="tf-button-icon-before style-1">
-                                                        <i class="flaticon-phone"></i>
-                                                        <div>
-                                                            <div class="title">Mobile</div>
-                                                            <span>1-222-333-4444</span>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="tf-button-icon-before style-1">
-                                                        <i class="flaticon-phone"></i>
-                                                        <div>
-                                                            <div class="title">Email</div>
-                                                            <span>info@propertyx.com</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="bot">
-                                            <div class="wg-social style-black">
-                                                <ul class="list-social">
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="icon-facebook"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="icon-twitter"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="icon-instagram"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="icon-linkedin2"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <ul class="flex flex-column gap15">
-                                                        <li class="radio-item">
-                                                            <label>
-                                                                
-                                                                <input type="radio">
-                                                                <span class="btn-checkbox"></span>
-                                                            </label>
-                                                        </li>
-                                                    </ul>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
+                                    
                                     
                                     
                                     

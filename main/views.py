@@ -15,7 +15,7 @@ import datetime as dt
 import requests
 
 from .forms import UserForm
-from .models import AppUser, Property, ScheduleTour, PropertyLike, PropertyBookmark, ReserveProperty, ReserveProperty
+from .models import AppUser, Property, ScheduleTour, PropertyLike, PropertyBookmark, ReserveProperty, ReserveProperty, Solicitor
 
 
 import random
@@ -156,14 +156,14 @@ def AppView(request):
 
     # Extract distinct values for filtering options
     property_types = set(properties.values_list('property_type', flat=True))
-    countries = set(properties.values_list('country', flat=True))
+    countries = set(properties.values_list('bedroom_number', flat=True))
     categories = set(properties.values_list('category', flat=True))
     property_statuses = set(properties.values_list('property_status', flat=True))
 
     if request.method == "POST":
         # Get the selected filters from the POST request
         property_type = request.POST.get("property_type")
-        country = request.POST.get("country")
+        bedroom_number = request.POST.get("bedroom_number")
         category = request.POST.get("category")
         property_status = request.POST.get("property_status")
         sort_by = request.POST.get("sort_by", "newest")  # Default to "newest" if not provided
@@ -173,7 +173,7 @@ def AppView(request):
 
         if property_type and property_type != "All Property Types":
             filter_criteria &= Q(property_type=property_type)
-        if country and country != "All Countries":
+        if bedroom_number and bedroom_number != "All Countries":
             filter_criteria &= Q(country=country)
         if category and category != "All Categories":
             filter_criteria &= Q(category=category)
@@ -296,13 +296,37 @@ def PropertyDetailView(request, property_id):
 
 def ReservePropertyView(request, property_id):
     prop = get_object_or_404(Property, id=property_id)
+    app_user = get_object_or_404(AppUser, user=request.user)
+    solicitors = Solicitor.objects.all()  # Fetch all available solicitors
     
-    # Add logic here to handle the reservation confirmation or details.
-    
+    if request.method == "POST":
+        # Check if the property is already reserved by the user
+        if ReserveProperty.objects.filter(user=app_user, prop=prop).exists():
+            messages.warning(request, "You have already reserved this property.")
+            return redirect('main:reserve_property', property_id=property_id)
+
+        solicitor_id = request.POST.get("solicitor")
+        if not solicitor_id:
+            messages.warning(request, "Please select a solicitor.")
+            return redirect('main:reserve_property', property_id=property_id)
+
+        solicitor = get_object_or_404(Solicitor, id=solicitor_id)
+
+        # Create the reservation with the selected solicitor
+        reservation = ReserveProperty.objects.create(
+            user=app_user,
+            prop=prop,
+            solicitor=solicitor
+        )
+
+        messages.success(request, "Property reserved successfully with the selected solicitor.")
+        return redirect('main:reserved_properties')
+
     context = {
         "prop": prop,
+        "solicitors": solicitors,  # Pass solicitors to the context
     }
-    
+
     return render(request, "main/reserve_property.html", context)
 
 def ForgotPasswordView(request):

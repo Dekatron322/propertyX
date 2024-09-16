@@ -116,9 +116,26 @@ class PropertyBookmark(models.Model):
     bookmarked_at = models.DateTimeField(default=timezone.now)
 
 
+class Solicitor(models.Model):
+	profile = models.FileField(upload_to='account_files/profile_photos/', blank=True, default="none")
+	name = models.CharField(max_length=100)
+	email = models.EmailField()
+	phone_number = models.CharField(max_length=120, null=True, blank=True)
+	mobile_number = models.CharField(max_length=120, null=True, blank=True)
+	twitter = models.CharField(max_length=120, null=True, blank=True)
+	facebook = models.CharField(max_length=120, null=True, blank=True)
+	instagram = models.CharField(max_length=120, null=True, blank=True)
+	likedin = models.CharField(max_length=120, null=True, blank=True)
+	position = models.CharField(max_length=120, null=True, blank=True)
+	firm_name = models.CharField(max_length=100, null=True, blank=True)
+
+	def __str__(self):
+		return self.name
+
 
 class ReserveProperty(models.Model):
-    user = models.ForeignKey(AppUser, on_delete=models.CASCADE)
-    prop = models.ForeignKey(Property, on_delete=models.CASCADE)
-    bookmarked_at = models.DateTimeField(default=timezone.now)        
+	user = models.ForeignKey(AppUser, on_delete=models.CASCADE)
+	prop = models.ForeignKey(Property, on_delete=models.CASCADE)
+	solicitor = models.ForeignKey(Solicitor, on_delete=models.SET_NULL, null=True, blank=True)
+	bookmarked_at = models.DateTimeField(default=timezone.now)        
         
