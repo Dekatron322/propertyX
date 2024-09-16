@@ -298,13 +298,8 @@ def ReservePropertyView(request, property_id):
     prop = get_object_or_404(Property, id=property_id)
     app_user = get_object_or_404(AppUser, user=request.user)
     solicitors = Solicitor.objects.all()  # Fetch all available solicitors
-    
-    if request.method == "POST":
-        # Check if the property is already reserved by the user
-        if ReserveProperty.objects.filter(user=app_user, prop=prop).exists():
-            messages.warning(request, "You have already reserved this property.")
-            return redirect('main:reserve_property', property_id=property_id)
 
+    if request.method == "POST":
         solicitor_id = request.POST.get("solicitor")
         if not solicitor_id:
             messages.warning(request, "Please select a solicitor.")
@@ -320,11 +315,11 @@ def ReservePropertyView(request, property_id):
         )
 
         messages.success(request, "Property reserved successfully with the selected solicitor.")
-        return redirect('main:reserved_properties')
+        return redirect('main:reserve_property', property_id=property_id)
 
     context = {
         "prop": prop,
-        "solicitors": solicitors,  # Pass solicitors to the context
+        "solicitors": solicitors,
     }
 
     return render(request, "main/reserve_property.html", context)
